@@ -50,28 +50,42 @@ const Navbar = ({ user }) => {
         </div>
       </div>
       {nav && (
-        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 ">
-          <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
-          <MobileNavItem
-            url={"/signup"}
-            label={"Signup"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/dashboard"}
-            label={"Dashboard"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/conversations"}
-            label={"Conversations"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/browse"}
-            label={"Browse"}
-            toggleNav={toggleNav}
-          />
+        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 text-center">
+          {!user._id && (
+            <div className="">
+              <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
+              <MobileNavItem
+                url={"/signup"}
+                label={"Signup"}
+                toggleNav={toggleNav}
+              />
+            </div>
+          )}
+
+          {user._id && (
+            <div className="">
+              <MobileNavItem
+                url={"/dashboard"}
+                label={"Dashboard"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/conversations"}
+                label={"Conversations"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/browse"}
+                label={"Browse"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/logout"}
+                label={"Logout"}
+                toggleNav={toggleNav}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
