@@ -13,6 +13,8 @@ import jwt_decode from "jwt-decode";
 import apiRoute from "./lib/apiRoute";
 import authAxios from "./lib/authAxios";
 import { useEffect, useState } from "react";
+import { element } from "prop-types";
+import Logout from "./routes/logout";
 function App() {
   const [user, setUser] = useState("");
 
@@ -35,6 +37,8 @@ function App() {
       <Navbar user={user} />
       <Routes>
         <Route path={"/"} element={<LoginPage />} />
+
+        <Route path={"/logout"} element={<Logout />} />
 
         <Route path={"/dashboard"} element={<DashBoardPage />} />
 
