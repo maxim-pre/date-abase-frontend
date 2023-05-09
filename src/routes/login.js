@@ -4,9 +4,9 @@ export default function LoginPage () {
     return (
         <>
             <div className="h-screen w-full flex justify-center items-center flex-col bg-[url('../src/static/images/AdobeStock_88856691_Preview.jpeg')] bg-top bg-cover" >
-                <h1 className="text-6xl font-bold mb-4 text-white text-shadow z-20">Daterbase</h1>
-                <p className="text-2xl font-bold mb-16 text-white text-shadow z-20">Dating for tech workers</p>
-                <h2 className="text-4xl font-bold mb-4 text-white text-shadow z-20">Welcome Back!</h2>
+                <h1 className="text-6xl font-bold mb-4 text-white text-shadow">Daterbase</h1>
+                <p className="text-2xl font-bold mb-16 text-white text-shadow">Dating for tech workers</p>
+                <h2 className="text-4xl font-bold mb-4 text-white text-shadow">Welcome Back!</h2>
                 <Login />
             </div>
             <div className="bg-gradient-to-br from-gray-200 to-white-500">
