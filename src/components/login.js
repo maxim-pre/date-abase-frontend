@@ -3,6 +3,7 @@ import FormInput from "./common/formInput";
 import { useState } from "react";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -14,13 +15,14 @@ const Login = () => {
       username: username,
       password: password,
     };
-    const response = await authAxios.post(`${apiRoute}login`, {user: user})
-    if (response.data.success===false) {
-      setError(response.data.message);
-    } else {
+    try {
+      const response = await authAxios.post(`${apiRoute}login`, {user: user})
+      console.log(response);
       localStorage.setItem("token", response.data.token);
       setError("");
-      // window.location.href = "/";
+    }
+    catch (error) {
+      setError(error.response.data.message);
     }
   };
 
@@ -55,9 +57,9 @@ const Login = () => {
 
           <span>
             New to daterbase?
-            <a className="text-xs text-blue-700 mx-auto hover:border-b hover:border-blue-700 cursor-pointer pl-2">
-              Signup
-            </a>
+            <Link to="/signup" className="text-xs text-blue-700 hover:border-b border-blue-700 cursor-pointer">
+              Sign up
+            </Link>
           </span>
         </form>
         {error && <div className="bg-red-200 w-full rounded">

@@ -1,19 +1,25 @@
 import FormInput from "./common/formInput";
 import { useState } from "react";
 import Select from "react-select";
+import authAxios from "../lib/authAxios";
+import apiRoute from "../lib/apiRoute";
+import {Link} from "react-router-dom";
+
 const Signup = () => {
   const options = [
     { value: "F", label: "Females" },
     { value: "M", label: "Males" },
   ];
 
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
+  const [error, setError] = useState("");
 
-  const submit = () => {
+  const submit = async () => {
     const user = {
       firstName: firstName,
       lastName: lastName,
@@ -21,12 +27,17 @@ const Signup = () => {
       password: password,
       interestedInGender: gender,
     };
-    console.log(user);
+    try {
+      const response = await authAxios.post(`${apiRoute}users`, {user: user});
+      setError("");
+      // window.location.href = "/";
+    }
+    catch (error) {
+      setError(error.response.data.message);
+    }
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center flex-col">
-      <h2 className="text-4xl font-bold my-4">Create an account!</h2>
       <div className="shadow-md p-4 max-w-[1000px]">
         <form
           onSubmit={(e) => {
@@ -72,11 +83,14 @@ const Signup = () => {
             Create
           </button>
         </form>
-        <a className="text-xs text-blue-700 hover:border-b border-blue-700 cursor-pointer">
+        <Link to="/" className="text-xs text-blue-700 hover:border-b border-blue-700 cursor-pointer">
           Back to login
-        </a>
+        </Link>
+        {error && <div className="bg-red-200 w-full rounded">
+          Error: {error}
+        </div>}
+
       </div>
-    </div>
   );
 };
 
