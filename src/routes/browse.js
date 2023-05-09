@@ -1,7 +1,7 @@
-const Browse = () =>{
+const BrowsePage = () =>{
     return (
     <div></div>
     )
 }
 
-export default Browse;
+export default BrowsePage;
