@@ -4,11 +4,11 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import { Routes, Route} from "react-router-dom";
 import PageNotFound from './routes/pagenotfound';
-import Login from "./routes/login";
-import SignUp from "./routes/signup";
-import DashBoard from "./components/dashBoard";
-import Conversations from "./routes/conversations";
-import Browse from "./routes/browse";
+import LoginPage from "./routes/login";
+import SignUpPage from "./routes/signup";
+import DashBoardPage from "./routes/dashboard";
+import ConversationsPage from "./routes/conversations";
+import BrowsePage from "./routes/browse";
 
 
 function App() {
@@ -17,19 +17,20 @@ function App() {
       <Navbar />
       <Routes>
       <Route path="/"
-      element={<Login/>} />
+      element={<LoginPage/>} />
       
       <Route path="/dashboard"
-      element={<DashBoard/>} />
+      element={<DashBoardPage/>} />
       
       <Route path="/signup"
-      element={<SignUp/>} />
+      element={<SignUpPage/>} />
 
       <Route path="/conversations"
-      element={<Conversations/>} />
+      element={<ConversationsPage/>} />
 
       <Route path="/browse"
-      element={<Browse/>} />
+      element={<BrowsePage/>} />
+      
       <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
