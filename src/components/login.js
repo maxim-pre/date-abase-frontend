@@ -20,7 +20,7 @@ const Login = () => {
       console.log(response);
       localStorage.setItem("token", response.data.token);
       setError("");
-      Navigate("dashbaord");
+      Navigate("dashboard");
     } catch (error) {
       setError(error.response.data.message);
     }
