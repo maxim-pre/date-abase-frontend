@@ -4,6 +4,7 @@ import Select from "react-select";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const options = [
@@ -11,6 +12,7 @@ const Signup = () => {
     { value: "M", label: "Males" },
   ];
 
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +32,7 @@ const Signup = () => {
     try {
       const response = await authAxios.post(`${apiRoute}users`, {user: user});
       setError("");
-      // window.location.href = "/";
+      navigate("/dashboard");
     }
     catch (error) {
       setError(error.response.data.message);

@@ -4,8 +4,10 @@ import { useState } from "react";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,6 +22,7 @@ const Login = () => {
       console.log(response);
       localStorage.setItem("token", response.data.token);
       setError("");
+      navigate("/dashboard");
     }
     catch (error) {
       setError(error.response.data.message);
