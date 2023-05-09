@@ -6,3 +6,5 @@ const authAxios = axios.create({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
+
+export default authAxios;
