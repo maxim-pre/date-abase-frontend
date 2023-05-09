@@ -21,14 +21,16 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
-      const userId = jwt_decode(token).id;
-      const response = await authAxios.get(`${apiRoute}users/${userId}`);
-      setUser(response.data.user);
+      if (token) {
+        const userId = jwt_decode(token).id;
+        const response = await authAxios.get(`${apiRoute}users/${userId}`);
+        setUser(response.data.user);
+      }
     };
     try {
       setUser(fetchData());
     } catch (error) {
-      console.log(error);
+      return "";
     }
   }, []);
 

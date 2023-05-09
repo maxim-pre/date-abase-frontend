@@ -19,13 +19,23 @@ const Navbar = ({ user }) => {
         <div className="object-cover h-16">
           <img src={Logo} className="h-16" />
         </div>
-        <div className="hidden sm:flex">
-          <NavItem url={"/"} label={"Login"} />
-          <NavItem url={"/signup"} label={"Signup"} />
-          <NavItem url={"/dashboard"} label={"Dashboard"} />
-          <NavItem url={"/conversations"} label={"Conversations"} />
-          <NavItem url={"/browse"} label={"Browse"} />
-        </div>
+
+        {!user._id && (
+          <div className="hidden sm:flex">
+            <NavItem url={"/"} label={"Login"} />
+            <NavItem url={"/signup"} label={"Signup"} />
+          </div>
+        )}
+
+        {user._id && (
+          <div className="hidden sm:flex">
+            <NavItem url={"/dashboard"} label={"Dashboard"} />
+            <NavItem url={"/conversations"} label={"Conversations"} />
+            <NavItem url={"/browse"} label={"Browse"} />
+            <NavItem url={"/logout"} label={"Logout"} />
+          </div>
+        )}
+
         <div
           className="sm:hidden"
           onClick={() => {

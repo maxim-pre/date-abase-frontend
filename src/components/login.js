@@ -2,13 +2,12 @@ import FormInput from "./common/formInput";
 import { useState } from "react";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const Navigate = useNavigate();
 
   const submit = async () => {
     const user = {
@@ -17,10 +16,9 @@ const Login = () => {
     };
     try {
       const response = await authAxios.post(`${apiRoute}login`, { user: user });
-      console.log(response);
       localStorage.setItem("token", response.data.token);
       setError("");
-      Navigate("dashboard");
+      window.location.href = "/dashboard";
     } catch (error) {
       setError(error.response.data.message);
     }
