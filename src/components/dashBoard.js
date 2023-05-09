@@ -1,7 +1,5 @@
 const DashBoard = () => {
-    return (
-    <div>dashBoard</div>
-    )
-}
+  return <div className="h-screen ">dashBoard</div>;
+};
 
-export default DashBoard
+export default DashBoard;
