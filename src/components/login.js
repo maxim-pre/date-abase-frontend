@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-      <div className="p-4 shadow-md rounded-lg max-w-[1000px]">
+      <div className="p-4 rounded-lg max-w-[1000px] bg-[#e8e8e890]">
         <form
           className="flex flex-col"
           onSubmit={(e) => {
@@ -55,10 +55,10 @@ const Login = () => {
           </button>
           <div className="w-full h-[0.5px] bg-gray-300 my-2 "></div>
 
-          <span>
+          <span className="text-xl">
             New to daterbase?
-            <Link to="/signup" className="text-xs text-blue-700 hover:border-b border-blue-700 cursor-pointer">
-              Sign up
+            <Link to="/signup" className="text-lg text-white bg- hover:border-b ml-3 py-1 px-5 rounded bg-red-600 border-blue-700 cursor-pointer">
+              Sign up!
             </Link>
           </span>
         </form>

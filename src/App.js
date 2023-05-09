@@ -13,7 +13,7 @@ import BrowsePage from "./routes/browse";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App varela">
       <Navbar />
       <Routes>
       <Route path="/"
