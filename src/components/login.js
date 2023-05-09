@@ -1,24 +1,30 @@
 import loginBackground from "../static/images/loginbackground.jpg";
 import FormInput from "./common/formInput";
 import { useState } from "react";
+import authAxios from "../lib/authAxios";
+import apiRoute from "../lib/apiRoute";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const submit = () => {
+  const submit = async () => {
     const user = {
       username: username,
       password: password,
     };
-    console.log(user);
+    const response = await authAxios.post(`${apiRoute}login`, {user: user})
+    if (response.data.success===false) {
+      setError(response.data.message);
+    } else {
+      localStorage.setItem("token", response.data.token);
+      setError("");
+      // window.location.href = "/";
+    }
   };
 
   return (
-    <div className="h-screen w-full flex justify-center items-center flex-col">
-      <h1 className="text-6xl font-bold mb-4">Daterbase</h1>
-      <p className="text-2xl font-bold mb-16">Dating for tech workers</p>
-      <h2 className="text-4xl font-bold mb-4">Welcome Back!</h2>
       <div className="p-4 shadow-md rounded-lg max-w-[1000px]">
         <form
           className="flex flex-col"
@@ -54,8 +60,10 @@ const Login = () => {
             </a>
           </span>
         </form>
+        {error && <div className="bg-red-200 w-full rounded">
+          Error: {error}
+        </div>}
       </div>
-    </div>
   );
 };
 
