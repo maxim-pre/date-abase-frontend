@@ -2,11 +2,17 @@ import Login from "../components/login"
 
 export default function LoginPage () {
     return (
-        <div className="h-screen w-full flex justify-center items-center flex-col">
-            <h1 className="text-6xl font-bold mb-4">Daterbase</h1>
-            <p className="text-2xl font-bold mb-16">Dating for tech workers</p>
-            <h2 className="text-4xl font-bold mb-4">Welcome Back!</h2>
-            <Login />
-        </div>
+        <>
+            <div className="h-screen w-full flex justify-center items-center flex-col bg-[url('../src/static/images/AdobeStock_88856691_Preview.jpeg')] bg-top bg-cover" >
+                <h1 className="text-6xl font-bold mb-4 text-white text-shadow">Daterbase</h1>
+                <p className="text-2xl font-bold mb-16 text-white text-shadow">Dating for tech workers</p>
+                <h2 className="text-4xl font-bold mb-4 text-white text-shadow">Welcome Back!</h2>
+                <Login />
+            </div>
+            <div>
+                <h2 className="text-4xl font-bold mx-4 mb-4 mt-32 text-white text-shadow">About DaterBase</h2>
+                <p className="mx-8">Welcome to our dating app designed exclusively for software developers! Our app is a platform that connects like-minded developers who are passionate about coding and technology. We understand that software developers often have unique interests, hobbies, and preferences that set them apart from the rest. That's why our app is tailored to their specific needs, helping them find meaningful connections with individuals who share their love for all things tech.<br />Our app is designed to make it easy for developers to find potential matches based on their coding languages, projects, and other technical interests. Whether you're looking for a partner to collaborate on a new project, share coding tips and tricks, or simply bond over a love for programming, our app provides a safe and comfortable space to meet like-minded individuals.<br />At our dating app, we believe that technology should be used to bring people together. That's why we've created a community of developers who can connect, share their knowledge, and potentially find love with someone who understands their passion for programming. We're excited to welcome you to our platform and help you find your perfect match! </p>
+           </div>
+        </>
     )
 }
