@@ -3,12 +3,13 @@ import "./App.css";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import { Routes, Route} from "react-router-dom";
-import PageNotFound from './routes/PageNotFound';
+import PageNotFound from './routes/pagenotfound';
 import Login from "./routes/login";
 import SignUp from "./routes/signup";
 import DashBoard from "./components/dashBoard";
 import Conversations from "./routes/conversations";
 import Browse from "./routes/browse";
+
 
 function App() {
   return (
