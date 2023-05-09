@@ -21,7 +21,6 @@ function App() {
       const token = localStorage.getItem("token");
       const userId = jwt_decode(token).id;
       const response = await authAxios.get(`${apiRoute}users/${userId}`);
-      console.log(response.data.user);
       setUser(response.data.user);
     };
     try {
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <div className="App varela">
-      <Navbar />
+      <Navbar user={user} />
       <Routes>
         <Route path={"/"} element={<LoginPage />} />
 

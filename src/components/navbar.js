@@ -5,8 +5,9 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [nav, setNav] = useState(false);
+  console.log(user);
 
   const toggleNav = () => {
     setNav(!nav);
