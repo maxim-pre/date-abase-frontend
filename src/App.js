@@ -7,6 +7,8 @@ import PageNotFound from './routes/PageNotFound';
 import Login from "./routes/login";
 import SignUp from "./routes/signup";
 import DashBoard from "./components/dashBoard";
+import Conversations from "./routes/conversations";
+import Browse from "./routes/browse";
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
       
       <Route path="/signup"
       element={<SignUp/>} />
+
+      <Route path="/conversations"
+      element={<Conversations/>} />
+
+      <Route path="/browse"
+      element={<Browse/>} />
       <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
