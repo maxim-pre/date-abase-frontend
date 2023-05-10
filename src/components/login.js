@@ -5,7 +5,6 @@ import apiRoute from "../lib/apiRoute";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
