@@ -38,7 +38,7 @@ const Signup = () => {
   };
 
   return (
-      <div className="shadow-md p-4 max-w-[1000px]">
+      <div className="p-4 rounded-lg max-w-[1000px] bg-[#e8e8e890] shadow-lg">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -69,7 +69,7 @@ const Signup = () => {
             value={lastName}
             onChange={setLastName}
           />
-          <label for="gender">I would like to meet...</label>
+          <label for="gender" className="uppercase text-xl">I would like to meet...</label>
           <Select
             options={options}
             onChange={(choice) => setGender(choice.value)}
@@ -78,12 +78,12 @@ const Signup = () => {
           />
           <button
             type="submit"
-            className="bg-red-500 w-full rounded text-white"
+            className="text-xl bg-red-500 rounded text-white uppercase py-2 w-full px-32"
           >
             Create
           </button>
         </form>
-        <Link to="/" className="text-xs text-blue-700 hover:border-b border-blue-700 cursor-pointer">
+        <Link to="/" className="text-md text-black-700 hover:border-b border-black-100 cursor-pointer">
           Back to login
         </Link>
         {error && <div className="bg-red-200 w-full rounded">
