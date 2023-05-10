@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import UserCard from "../components/userCard";
-const BrowsePage = () => {
-    return (
-        <div>
-            <h1 className="text-5xl justify-center flex items-center">Meet your match!</h1>
-            <UserCard />
-    </div>
-=======
 import React, {useEffect, useState} from'react';
 import { getAllUsers } from '../lib/usersApi';
+import UserCard from '../components/userCard';
 
 const BrowsePage = ({user}) =>{
     // Feed through user information to the UserCard component
@@ -56,7 +48,6 @@ const BrowsePage = ({user}) =>{
             <h1>Find your perfect (pair programming) partner!</h1>
             {displayUsers}
         </div>
->>>>>>> 7a2c7a3 (Add basic browse page logic)
     )
 }
 
