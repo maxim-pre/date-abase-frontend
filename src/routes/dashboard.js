@@ -22,7 +22,7 @@ export default function DashboardPage({ user }) {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <button className="uppercase text-2xl text-white bg-red-500 w-full py-4">Edit your profile</button>
+          <button className="uppercase text-2xl text-white bg-red-500 w-full py-4 lg:w-80  md:w-">Edit your profile</button>
         </div>
       </div>
 

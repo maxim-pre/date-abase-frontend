@@ -38,8 +38,8 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
             <p className='text-center pb-8'>I joined DaterBase on {joinedAt}</p>
             <div className='flex flex-col items-center'>
                 <div>
-                <button className="text-4xl bg-red-500 rounded-full px-5 py-4 mr-6" onClick={handleRemoveMatch}>N</button>
-                <button className="text-4xl bg-red-500 rounded-full px-6 py-4 ml-6" onClick={handleAddMatch}> Y</button>
+                <button className="text-4xl bg-red-500 text-white rounded-full px-5 py-4 mr-6 focus:bg-green-500 focus:text-black hover:shadow-2xl hover:bg-yellow-400 hover:text-black" onClick={handleRemoveMatch}>N</button>
+                <button className="text-4xl bg-red-500 text-white rounded-full px-6 py-4 ml-6 focus:bg-green-500 focus:text-black hover:shadow-2xl hover:bg-yellow-400 hover:text-black" onClick={handleAddMatch}> Y</button>
                 </div>
                 </div>
         </div>
