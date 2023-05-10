@@ -1,12 +1,17 @@
 import { useState } from "react";
-import jwt_decode from "jwt-decode";
+import profile from "../static/images/avatar.png";
 
-export default function DashboardPage() {
-  const [user, setUser] = useState("");
+export default function DashboardPage({ user }) {
+  console.log(user);
   return (
     <div className="h-screen w-full flex">
-      {/* left section for profile */}
-      <div className="absolute flex h-full w-56 bg-red-200"></div>
+      {/* profile section */}
+      <div className="sm:w-[70%] w-full h-80 shadow ml-8 my-6 mr-4 rounded-lg">
+        {/* profile pic */}
+        <div className="mx-4 ">
+          <img src={profile} className="object-cover w-40 rounded-full" />
+        </div>
+      </div>
     </div>
   );
 }

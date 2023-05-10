@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const Navbar = ({ user }) => {
   const [nav, setNav] = useState(false);
-  console.log(user);
 
   const toggleNav = () => {
     setNav(!nav);

@@ -17,7 +17,7 @@ import { element } from "prop-types";
 import Logout from "./routes/logout";
 function App() {
   const [user, setUser] = useState("");
-
+  // fetches logged in user data
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("token");
@@ -25,6 +25,8 @@ function App() {
         const userId = jwt_decode(token).id;
         const response = await authAxios.get(`${apiRoute}users/${userId}`);
         setUser(response.data.user);
+      } else {
+        return setUser("");
       }
     };
     try {
@@ -33,28 +35,41 @@ function App() {
       return "";
     }
   }, []);
+  console.log(user);
 
-  return (
-    <div className="App varela">
-      <Navbar user={user} />
-      <Routes>
-        <Route path={"/"} element={<LoginPage />} />
+  if (!user._id) {
+    return (
+      <div className="App varela">
+        <Navbar user={user} />
+        <Routes>
+          <Route path={"/"} element={<LoginPage />} />
 
-        <Route path={"/logout"} element={<Logout />} />
+          <Route path={"/signup"} element={<SignUpPage />} />
 
-        <Route path={"/dashboard"} element={<DashBoardPage />} />
+          <Route path={"*"} element={<PageNotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div className="App varela">
+        <Navbar user={user} />
+        <Routes>
+          <Route path={"/"} element={<DashBoardPage user={user} />} />
 
-        <Route path={"/signup"} element={<SignUpPage />} />
+          <Route path={"/logout"} element={<Logout />} />
 
-        <Route path={"/conversations"} element={<ConversationsPage />} />
+          <Route path={"/conversations"} element={<ConversationsPage />} />
 
-        <Route path={"/browse"} element={<BrowsePage />} />
+          <Route path={"/browse"} element={<BrowsePage />} />
 
-        <Route path={"*"} element={<PageNotFound />} />
-      </Routes>
-      <Footer />
-    </div>
-  );
+          <Route path={"*"} element={<PageNotFound />} />
+        </Routes>
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;

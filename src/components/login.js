@@ -18,7 +18,7 @@ const Login = () => {
       const response = await authAxios.post(`${apiRoute}login`, { user: user });
       localStorage.setItem("token", response.data.token);
       setError("");
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     } catch (error) {
       setError(error.response.data.message);
     }
