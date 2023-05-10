@@ -1,7 +1,7 @@
 const FormInput = ({ label, type, value, onChange }) => {
   return (
     <div className="flex flex-col my-2">
-      <label htmlFor="username" className="pr-2 text-xl uppercase mt-2">
+      <label htmlFor={label} className="pr-2 text-xl uppercase mt-2">
         {label}
       </label>
       <input
