@@ -1,25 +1,21 @@
+
 .text-shadow {
     text-shadow: 0 0 10px black;
 }
-
-.custom-shape-divider-bottom-1683644911 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+.text-shadow-white {
+    text-shadow: 0 0 10px white;
+}
+.text-shadow-none {
+    text-shadow: none;
+}
+.slide-in-right {
+    -webkit-animation: slide-in-right 1.5s;
+    animation: slide-in-right 1.5s;
+}
+@-webkit-keyframes slide {
+    100% { left: 0; }
 }
 
-.custom-shape-divider-bottom-1683644911 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-    transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1683644911 .shape-fill {
-    fill: #FFFFFF;
-}
+@keyframes slide {
+    100% { left: 0; }
+}  

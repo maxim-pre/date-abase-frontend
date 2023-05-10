@@ -5,6 +5,7 @@ import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 import { Link } from "react-router-dom";
 
+
 const Signup = () => {
   const options = [
     { value: "F", label: "Females" },
@@ -38,13 +39,14 @@ const Signup = () => {
       }
       console.log(response);
       setError("");
-      // window.location.href = "/";
+      window.location.href = "/";
     } catch (error) {
       setError(error.response.data.message);
     }
   };
 
   return (
+
     <div className="shadow-md p-4 max-w-[1000px]">
       <form
         onSubmit={(e) => {
@@ -95,6 +97,7 @@ const Signup = () => {
       </Link>
       {error && <div className="bg-red-200 w-full rounded">Error: {error}</div>}
     </div>
+
   );
 };
 
