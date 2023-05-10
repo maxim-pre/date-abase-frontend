@@ -12,9 +12,10 @@ import PhotosModal from "../components/photosModal";
 export default function DashboardPage({ user }) {
   const [currentUser, setCurrentUser] = useState(user);
   const [currentPhoto, setCurrentPhoto] = useState(0);
-  const [modal, setModal] = useState(false);
+  const [photoModal, setPhotoModal] = useState(false);
+  const [updateUserModal, setUpdateUserModal] = useState(false);
 
-  const avatarURL = "jlowzke3nc1fxdk3ocwu";
+  const avatarURL = "rqzml8fakhiu8gteaujy";
 
   const photos = [
     currentUser.photoOne ? currentUser.photoOne : avatarURL,
@@ -27,7 +28,7 @@ export default function DashboardPage({ user }) {
     <div className=" w-full flex flex-col h-screen" id="home">
       {/* profile section */}
       {/* profile pic */}
-      <div className="flex flex-col items-center relative">
+      <div className=" items-center relative">
         <div className="w-full">
           <UserPhoto imageUrl={photos[currentPhoto]} />
         </div>
@@ -78,29 +79,46 @@ export default function DashboardPage({ user }) {
         </div>
       </div>
       {/* content area */}
-      <div className="flex justify-between mx-2 my-2 items-center">
-        <h2 className="underline font-bol">{currentUser.username}</h2>
-        <div>
-          <button className="text-2xl mr-2">
-            <BsFillGearFill />
-          </button>
-          <button
-            className="text-2xl ml-2"
-            onClick={() => {
-              setModal(!modal);
-            }}
-          >
-            <IoMdPhotos />
-          </button>
+      <div className="mx-2">
+        <div className="flex justify-between  mt-2 items-center">
+          <h2 className="font-bold text-lg">{currentUser.username}</h2>
+          <div>
+            <button
+              className="text-2xl mr-2"
+              onClick={() => setUpdateUserModal(!updateUserModal)}
+            >
+              <BsFillGearFill />
+            </button>
+            <button
+              className="text-2xl ml-2"
+              onClick={() => setPhotoModal(!photoModal)}
+            >
+              <IoMdPhotos />
+            </button>
+          </div>
         </div>
+        <hr />
+        <h2 className="mt-2">
+          likes {currentUser.interestedInGender === "F" ? "Chicks" : "Dudes"}
+        </h2>
+        <hr />
+        <p className="mt-2">
+          {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
+        </p>
       </div>
-      <Modal isOpen={modal} onRequestClose={() => setModal(false)}>
+      <Modal isOpen={photoModal} onRequestClose={() => setPhotoModal(false)}>
         <PhotosModal
-          setModal={setModal}
+          setModal={setPhotoModal}
           user={currentUser}
           setUser={setCurrentUser}
           photos={photos}
         />
+      </Modal>
+      <Modal
+        isOpen={updateUserModal}
+        onRequestClose={() => setUpdateUserModal(false)}
+      >
+        <div>Update user modal</div>
       </Modal>
     </div>
   );
