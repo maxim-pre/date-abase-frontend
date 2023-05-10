@@ -1,7 +1,7 @@
 import profile from '../../src/static/images/avatar.png';
 import { addMatch, removeMatch } from '../lib/matchesApi';
 
-const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt}) => {
+const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio}) => {
 
     function handleAddMatch() {
         addMatch(currentUser, otherUser);
@@ -17,10 +17,21 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
 
     const joinedAt  = new Date(createdAt).toLocaleDateString();  
   
-    return (
+    const interestedinDisplay = () => {
+        if (interestedInGender === "M") {
+            return "Men";
+        } else if (interestedInGender === "F") {
+            return "Women";
+        } else if (interestedInGender === "O" || interestedInGender === "NB") {
+            return "Everyone"
+        }
+    }
+
+        return (
+
         <div className="border w-100 mx-4 my-4 px-4 py-4 bg-[#e8e8e890]">
             <h2 className="text-3xl text-center pb-4">{firstName} {lastName}</h2>
-            <p className='text-center'>Hi I'm {firstName} and I'm interested in meeting {interestedInGender === "M" ? "men" : "women"}</p>
+            <p className='text-center'>Hi I'm {firstName} and I'm interested in meeting {interestedinDisplay()}</p>
             
 
             <img className="object-cover w-full rounded-full py-12 px-12" src={profile} />

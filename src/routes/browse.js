@@ -49,7 +49,9 @@ const BrowsePage = ({user}) =>{
     return (
         <div>
             <h1 className='text-5xl text-center my-8'>Find your perfect (pair programming) partner!</h1>
-            {displayUsers}
+            <div className='grid lg:grid-cols-3 place-items-center md:grid-cols-2'>
+                {displayUsers}
+            </div>
         </div>
     )
 }
