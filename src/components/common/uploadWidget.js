@@ -20,10 +20,10 @@ const UploadWidget = ({ handleUploadImage, user, setUser }) => {
 
   return (
     <button
-      className="border border-red-500 py-2 px-4 rounded w-20 "
+      className="bg-red-500 rounded px-2 text-white font-bold"
       onClick={() => widgetRef.current.open()}
     >
-      upload
+      Change
     </button>
   );
 };
