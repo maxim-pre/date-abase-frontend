@@ -8,10 +8,9 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   const options = [
-    { value: "F", label: "Female" },
-    { value: "M", label: "Male" },
-    { value: "NB", label: "Non-Binary" },
-    { value: "O", label: "Other" }
+    { value: "F", label: "women" },
+    { value: "M", label: "men" },
+    { value: "O", label: "other" }
   ];
 
   const [username, setUsername] = useState("");
@@ -41,7 +40,7 @@ const Signup = () => {
       }
       console.log(response);
       setError("");
-      window.location.href = "/";
+      window.location.href = "/editprofile";
     } catch (error) {
       setError(error.response.data.message);
     }
@@ -64,7 +63,7 @@ const Signup = () => {
         />
         <FormInput
           label={"password"}
-          type={"text"}
+          type={"password"}
           value={password}
           onChange={setPassword}
         />
@@ -82,6 +81,7 @@ const Signup = () => {
         />
         <label htmlFor="gender">I would like to meet...</label>
         <Select
+          isMulti
           options={options}
           onChange={(choice) => setGender(choice.value)}
           className="my-2 "

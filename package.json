@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "homepage": "http://maxim-pre.github.io/date-abase-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

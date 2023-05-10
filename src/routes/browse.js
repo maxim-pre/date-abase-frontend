@@ -17,7 +17,8 @@ const BrowsePage = ({user}) =>{
                 return data.json()
             })
             .then(results => {
-                setAllUsers(results.users)
+                let otherUsers = results.users.filter(person => person._id !== currentUser._id)
+                setAllUsers(otherUsers)
             })
     }, []);
 
@@ -44,7 +45,6 @@ const BrowsePage = ({user}) =>{
             isMatched={otherUser.isMatched}
         />)
     })
-    
     
     return (
         <div>
