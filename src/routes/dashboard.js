@@ -1,7 +1,5 @@
 import { useState } from "react";
 import UploadWidget from "../components/common/uploadWidget";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { Resize } from "@cloudinary/url-gen/actions";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsCircleFill } from "react-icons/bs";
@@ -85,7 +83,6 @@ export default function DashboardPage({ user }) {
           setUser={setCurrentUser}
         />
       </div>
-      <Modal />
     </div>
   );
 }
