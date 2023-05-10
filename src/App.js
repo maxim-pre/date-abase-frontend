@@ -35,7 +35,6 @@ function App() {
       return "";
     }
   }, []);
-  console.log(user);
 
   if (!user._id) {
     return (
@@ -60,7 +59,10 @@ function App() {
 
           <Route path={"/logout"} element={<Logout />} />
 
-          <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
+          <Route
+            path={"/conversations"}
+            element={<ConversationsPage user={user} />}
+          />
 
           <Route path={"/browse"} element={<BrowsePage />} />
 
