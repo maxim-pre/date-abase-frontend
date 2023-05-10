@@ -9,9 +9,9 @@ const MobileNavItem = ({ url, label, toggleNav }) => {
       }}
     >
       <Link to={url} className="relative">
-        <a className="after:content-[''] after:bg-white after:h-[3px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300 after:hover:w-[100%]">
+        <span className="after:content-[''] after:bg-white after:h-[3px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300 after:hover:w-[100%]">
           {label}
-        </a>
+        </span>
       </Link>
     </div>
   );

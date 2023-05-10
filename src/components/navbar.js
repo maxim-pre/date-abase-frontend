@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [nav, setNav] = useState(false);
 
   const toggleNav = () => {
@@ -18,13 +18,23 @@ const Navbar = () => {
         <div className="object-cover h-24">
           <img src={Logo} className="h-24" />
         </div>
-        <div className="hidden sm:flex">
-          <NavItem url={"/"} label={"Login"} />
-          <NavItem url={"/signup"} label={"Signup"} />
-          <NavItem url={"/dashboard"} label={"Dashboard"} />
-          <NavItem url={"/conversations"} label={"Conversations"} />
-          <NavItem url={"/browse"} label={"Browse"} />
-        </div>
+
+        {!user._id && (
+          <div className="hidden sm:flex">
+            <NavItem url={"/"} label={"Login"} />
+            <NavItem url={"/signup"} label={"Signup"} />
+          </div>
+        )}
+
+        {user._id && (
+          <div className="hidden sm:flex">
+            <NavItem url={"/dashboard"} label={"Dashboard"} />
+            <NavItem url={"/conversations"} label={"Conversations"} />
+            <NavItem url={"/browse"} label={"Browse"} />
+            <NavItem url={"/logout"} label={"Logout"} />
+          </div>
+        )}
+
         <div
           className="sm:hidden"
           onClick={() => {
@@ -39,28 +49,42 @@ const Navbar = () => {
         </div>
       </div>
       {nav && (
-        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 transition-property: opacity">
-          <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
-          <MobileNavItem
-            url={"/signup"}
-            label={"Signup"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/dashboard"}
-            label={"Dashboard"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/conversations"}
-            label={"Conversations"}
-            toggleNav={toggleNav}
-          />
-          <MobileNavItem
-            url={"/browse"}
-            label={"Browse"}
-            toggleNav={toggleNav}
-          />
+        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 text-center">
+          {!user._id && (
+            <div className="">
+              <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
+              <MobileNavItem
+                url={"/signup"}
+                label={"Signup"}
+                toggleNav={toggleNav}
+              />
+            </div>
+          )}
+
+          {user._id && (
+            <div className="">
+              <MobileNavItem
+                url={"/dashboard"}
+                label={"Dashboard"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/conversations"}
+                label={"Conversations"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/browse"}
+                label={"Browse"}
+                toggleNav={toggleNav}
+              />
+              <MobileNavItem
+                url={"/logout"}
+                label={"Logout"}
+                toggleNav={toggleNav}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
