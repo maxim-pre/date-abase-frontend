@@ -47,7 +47,7 @@ const BrowsePage = ({user}) =>{
     
     return (
         <div>
-            <h1>Find your perfect (pair programming) partner!</h1>
+            <h1 className='text-5xl text-center my-8'>Find your perfect (pair programming) partner!</h1>
             {displayUsers}
         </div>
     )
