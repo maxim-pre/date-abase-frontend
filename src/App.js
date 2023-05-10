@@ -62,7 +62,7 @@ function App() {
 
           <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
 
-          <Route path={"/browse"} element={<BrowsePage />} />
+          <Route path={"/browse"} element={<BrowsePage user={user} />} />
 
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>

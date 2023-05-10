@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ConversationPreview from "./conversationPreview";
-import { getAllConversations } from "./conversationsApi";
+import { getAllConversations } from "../../lib/conversationsApi";
 import jwt_decode from "jwt-decode";
 
 export default function Conversations() {
