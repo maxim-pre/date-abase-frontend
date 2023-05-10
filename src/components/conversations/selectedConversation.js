@@ -1,9 +1,9 @@
-import { getUserInfo } from "./conversationsApi";
+import { getUserInfo } from "../../lib/usersApi";
 import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import Message from "./message";
 
-export default function SelectedConversation ({participantOne, participantTwo, messages}) {
+export default function SelectedConversation ({user, participantOne, participantTwo, messages}) {
     
     const token = localStorage.getItem("token");
     const decodedToken = jwt_decode(token);

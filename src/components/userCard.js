@@ -1,5 +1,5 @@
 import profile from '../../src/static/images/avatar.png';
-const UserCard = () => {
+const UserCard = ({firstName, lastName, interestedInGender, isMatched, createdAt}) => {
     return (
         <div className="border w-full">
             <h2 className="text-xl">Name</h2>

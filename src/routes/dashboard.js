@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import profile from "../static/images/avatar.png";
+import Matches from "../components/matches";
 
 export default function DashboardPage({ user }) {
   console.log(user);
+
+  const [matches, setMatches] = useState([]);
+  
+  useEffect(() => {
+    setMatches(user.matches)
+  }, [])
+
   return (
     <div className="h-screen w-full flex">
       {/* profile section */}
@@ -11,6 +19,12 @@ export default function DashboardPage({ user }) {
         <div className="mx-4 ">
           <img src={profile} className="object-cover w-40 rounded-full" />
         </div>
+      </div>
+
+      {/* matches section */}
+      <div>
+        <h2>Your Matches</h2>
+        <Matches matches={matches}/>
       </div>
     </div>
   );
