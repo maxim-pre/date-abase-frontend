@@ -9,7 +9,7 @@ export default function DashboardPage({ user }) {
   
   useEffect(() => {
     setMatches(user.matches)
-  }, [])
+  }, [user.matches])
 
   return (
     <div className="h-screen w-full flex">

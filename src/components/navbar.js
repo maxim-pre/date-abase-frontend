@@ -64,7 +64,7 @@ const Navbar = ({ user }) => {
           {user._id && (
             <div className="">
               <MobileNavItem
-                url={"/dashboard"}
+                url={"/"}
                 label={"Dashboard"}
                 toggleNav={toggleNav}
               />
