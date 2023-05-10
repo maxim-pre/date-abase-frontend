@@ -10,23 +10,29 @@ export default function Matches({currentUser, matches}) {
 
     useEffect(() => {
         if (matches.length > 0) {
-            matches.map((match) => {
-                getUserInfo(match)
-                    .then((res) => { return res.json()})
+            Promise.all( matches.map((match) => {
+                return getUserInfo(match)
+                    .then((res) => { 
+                        return res.json()
+                    })
+                    .then((data) => {
+                        return data.user})
                     .catch((err) => console.log(err))
             })
+            )
+            .then((newMatches) => {
+            setAllMatches(newMatches)
+            })
         }
-        setAllMatches(...matches)
     }, [matches])
 
     
-    let displayMatches = <p>No matches yet!</p>
+    const [displayMatches, setDisplayMatches] = useState(<p>No matches yet!</p>)
     
 
     useEffect(() => {
         if (allMatches) {
-            allMatches.map((user) => {
-                console.log(user)
+            let newMatches = [...allMatches].map((user) => {
                 return (<UserCard 
                     currentUser={currentUser}
                     otherUser={user}
@@ -39,6 +45,7 @@ export default function Matches({currentUser, matches}) {
                     isMatched={true}
                 />)
             })
+            setDisplayMatches(newMatches)
         }
     }, [allMatches])
     
