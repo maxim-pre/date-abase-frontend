@@ -14,9 +14,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="flex justify-between px-4 h-16 items-center bg-red-500 text-gray-100">
-        <div className="object-cover h-16">
-          <img src={Logo} className="h-16" />
+      <div className="flex justify-between px-4 h-22 items-center bg-red-500 text-gray-100 text-2xl">
+        <div className="object-cover h-24">
+          <img src={Logo} className="h-24" />
         </div>
         <div className="hidden sm:flex">
           <NavItem url={"/"} label={"Login"} />
@@ -32,14 +32,14 @@ const Navbar = () => {
           }}
         >
           {!nav ? (
-            <RxHamburgerMenu className="text-xl cursor-pointer" />
+            <RxHamburgerMenu className="text-5xl cursor-pointer" />
           ) : (
-            <TfiClose className="text-xl cursor-pointer " />
+            <TfiClose className="text-4xl cursor-pointer mr-2" />
           )}
         </div>
       </div>
       {nav && (
-        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 ">
+        <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 transition-property: opacity">
           <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
           <MobileNavItem
             url={"/signup"}

@@ -1,9 +1,10 @@
-import loginBackground from "../static/images/loginbackground.jpg";
+
 import FormInput from "./common/formInput";
 import { useState } from "react";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -27,7 +28,7 @@ const Login = () => {
   };
 
   return (
-      <div className="p-4 rounded-lg max-w-[1000px] bg-[#e8e8e890]">
+      <div className="p-4 rounded-lg max-w-[1000px] bg-[#e8e8e890] shadow-lg">
         <form
           className="flex flex-col"
           onSubmit={(e) => {
@@ -49,15 +50,15 @@ const Login = () => {
           />
           <button
             type="submit"
-            className="text-lg bg-red-600 rounded text-white"
+            className="text-xl bg-red-500 rounded text-white uppercase py-2 shadow-xl"
           >
             Submit
           </button>
           <div className="w-full h-[0.5px] bg-gray-300 my-2 "></div>
 
-          <span className="text-xl">
-            New to daterbase?
-            <Link to="/signup" className="text-lg text-white bg- hover:border-b ml-3 py-1 px-5 rounded bg-red-600 border-blue-700 cursor-pointer">
+          <span className="text-xl py-4 text-shadow-white">
+            New to DaterBase?
+            <Link to="/signup" className=" text-shadow-none shadow-xl text-lg text-white bg- hover:border-b ml-3 px-5 rounded bg-red-500 border-blue-700 cursor-pointer uppercase py-2 ">
               Sign up!
             </Link>
           </span>
