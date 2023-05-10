@@ -1,17 +1,17 @@
 import profile from '../../src/static/images/avatar.png';
 import { addMatch, removeMatch } from '../lib/matchesApi';
 
-const UserCard = ({currentUser, id, firstName, lastName, interestedInGender, isMatched, createdAt}) => {
+const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt}) => {
 
     function handleAddMatch() {
-        addMatch(currentUser.id, id);
-        addMatch(id, currentUser.id);
+        addMatch(currentUser, otherUser);
+        addMatch(otherUser, currentUser);
         // some code to change the style of the button(s)
     }
 
     function handleRemoveMatch() {
-        removeMatch(currentUser.id, id);
-        removeMatch(id, currentUser.id);
+        removeMatch(currentUser, otherUser);
+        removeMatch(otherUser, currentUser);
         // some code to change the style of the button(s)
     }
 
