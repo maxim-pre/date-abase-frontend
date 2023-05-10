@@ -60,7 +60,7 @@ function App() {
 
           <Route path={"/logout"} element={<Logout />} />
 
-          <Route path={"/conversations"} element={<ConversationsPage />} />
+          <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
 
           <Route path={"/browse"} element={<BrowsePage />} />
 
