@@ -33,7 +33,9 @@ const BrowsePage = ({user}) =>{
         }
 
         return (<UserCard 
+            currentUser={currentUser}
             key={otherUser._id} 
+            id={otherUser._id}
             firstName={otherUser.firstName}
             lastName={otherUser.lastName}
             interestedInGender={otherUser.interestedInGender}

@@ -24,7 +24,7 @@ export default function DashboardPage({ user }) {
       {/* matches section */}
       <div>
         <h2>Your Matches</h2>
-        <Matches matches={matches}/>
+        <Matches matches={matches} currentUser={user}/>
       </div>
     </div>
   );
