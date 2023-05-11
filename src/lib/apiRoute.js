@@ -2,7 +2,7 @@ let apiRoute;
 const expressPort = 5007;
 const apiUrls = {
   development: `http://localhost:${expressPort}/api/`,
-  production: `https://salty-hamlet-33527.herokuapp.com/api/`,
+  production: `https://protected-citadel-18819.herokuapp.com//api/`,
 };
 
 if (window.location.hostname === "localhost") {
