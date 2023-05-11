@@ -14,13 +14,12 @@ export default function EditProfilePage({user}) {
     const [whiteSpace, setWhiteSpace] = useState([]);
 
     useEffect(() => {
-        console.log('getting some data')
+        console.log('getting some question data')
         getAllQuestions()
         .then((data) => { 
             data.sort((a, b) => (a.questionText > b.questionText? 1 : -1))
                 .map((question) => {
                     question.possibleAnswers = question.possibleAnswers.map((answer) => {
-                        
                         return { value: answer, label: answer }
                     })
                     return question
@@ -51,14 +50,23 @@ export default function EditProfilePage({user}) {
     // }
 
     // try {
-    //     console.log(user._id);
-    //     const response = await fetch(`${apiRoute}users/${user._id}`, {
+
+    //     survey = [
+    //         {questionId: questions[0]._id, answer: sql},
+    //         {questionId: questions[1]._id, answer: techStack},
+    //         {questionId: questions[2]._id, answer: comments},
+    //         {questionId: questions[3]._id, answer: coding},
+    //         {questionId: questions[4]._id, answer: whiteSpace}
+    //     ]
+
+    //     const response = await fetch(`${apiRoute}surveys/`, {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json',
     //         },
     //         body: JSON.stringify({
-    //             bio: bio, location: location, gender: gender
+    //             completedBy: user._id,
+    //             survey
     //         })
     //     });
     //     const data = await response.json();
