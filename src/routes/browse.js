@@ -1,38 +1,56 @@
-import React, { useEffect, useState } from "react";
-import { getAllUsers } from "../lib/usersApi";
-import UserCard from "../components/userCard";
+import React, {useEffect, useState} from'react';
+import { getAllUsers } from '../lib/usersApi';
+import UserCard from '../components/userCard';
 
-const BrowsePage = ({ user }) => {
-  // Feed through user information to the UserCard component
+const BrowsePage = ({user, fetchData}) =>{
+    // Feed through user information to the UserCard component
+    useEffect(() => {
+        fetchData();
+      }, []);
+    // current user information
+    const currentUser = user;
 
-  // current user information
-  const currentUser = user;
+    // all user information
+    const [allUsers, setAllUsers] = useState([]);
 
-  // all user information
-  const [allUsers, setAllUsers] = useState([]);
+    useEffect(() => {
+        getAllUsers()
+            .then(data => {
+                return data.json()
+            })
+            .then(results => {
+                let otherUsers = results.users.filter(person => person._id !== currentUser._id)
+                setAllUsers(otherUsers)
+            })
+    }, [user]);
 
-  useEffect(() => {
-    getAllUsers()
-      .then((data) => {
-        return data.json();
-      })
-      .then((results) => {
-        let otherUsers = results.users.filter(
-          (person) => person._id !== currentUser._id
-        );
-        setAllUsers(otherUsers);
-      });
-  }, []);
+    
 
-  console.log(allUsers);
-  const displayUsers = allUsers.map((otherUser) => {
-    // Check if current user is in this user's matches array
-    if (otherUser.matches.includes(currentUser._id)) {
-      otherUser.isMatched = true;
-    } else {
-      otherUser.isMatched = false;
-    }
+    
+    
+    const displayUsers = allUsers.map(otherUser => {
 
+        // Check if current user is in this user's matches array
+        if (otherUser.matches.includes(currentUser._id)) {
+            otherUser.isMatched=true;
+        } else {
+            otherUser.isMatched=false;
+        }
+
+        return (<UserCard 
+            currentUser={currentUser}
+            otherUser={otherUser}
+            key={otherUser._id} 
+            id={otherUser._id}
+            firstName={otherUser.firstName}
+            lastName={otherUser.lastName}
+            interestedInGender={otherUser.interestedInGender}
+            createdAt={otherUser.createdAt}
+            isMatched={otherUser.isMatched}
+            fetchData={fetchData}
+        />)
+    })
+    
     return (
       <UserCard
         currentUser={currentUser}

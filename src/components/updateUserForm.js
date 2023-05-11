@@ -10,11 +10,11 @@ const UpdateUserForm = ({ user, setModal }) => {
   const [lastName, setLastName] = useState(user.lastName);
   const [gender, setGender] = useState(user.interestedInGender);
   const [bio, setBio] = useState(user.bio ? user.bio : "");
-  const [age, setAge] = useState(user.age ? user.age : 1);
+  const [age, setAge] = useState(user.age ? user.age : 18);
   const [error, setError] = useState("");
   console.log(user);
 
-  const ageOptionsArray = Array.from(Array(100 + 1).keys()).slice(1);
+  const ageOptionsArray = Array.from(Array(120 + 1).keys()).slice(18);
   const ageOptions = ageOptionsArray.map((age) => {
     return { value: age, label: age.toString() };
   });
@@ -69,7 +69,17 @@ const UpdateUserForm = ({ user, setModal }) => {
         onChange={setLastName}
       />
 
+
+      <label htmlFor="age">My age</label>
+            <Select
+              options={ageOptions}
+              onChange={(choice) => setAge(choice.value)}
+              className="my-2 "
+              id="age"
+            />
+
       <label htmlFor="gender">I would like to meet...</label>
+
       <Select
         isMulti
         options={genderOptions}
@@ -80,14 +90,9 @@ const UpdateUserForm = ({ user, setModal }) => {
         id="gender"
       />
 
-      <label htmlFor="age">Age</label>
-      <Select
-        options={ageOptions}
-        onChange={(choice) => setAge(choice.value)}
-        className="my-2 "
-        id="age"
-      />
-      <label htmlFor="bio">Bio</label>
+
+      
+      <label htmlFor="bio">A bit about me...</label>
       <textarea
         className="border border-gray-200 p-2"
         id="bio"
@@ -97,7 +102,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         value={bio}
         onChange={(e) => setBio(e.target.value)}
       />
-      <button type="submit" className="p-2 text-white bg-red-500 my-6">
+      <button type="submit" className="p-2 text-white bg-red-500 my-6 uppercase text-2xl">
         submit
       </button>
     </form>

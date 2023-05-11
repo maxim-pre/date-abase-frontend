@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import UserCard from "./userCard";
 import { Link } from "react-router-dom";
 
-export default function Matches({ currentUser, matches }) {
+export default function Matches({ currentUser, matches, fetchData }) {
   const [allMatches, setAllMatches] = useState([]);
 
   useEffect(() => {
@@ -48,6 +48,7 @@ export default function Matches({ currentUser, matches }) {
             interestedInGender={user.interestedInGender}
             createdAt={user.createdAt}
             isMatched={true}
+            fetchData={fetchData}
           />
         );
       });

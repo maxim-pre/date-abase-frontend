@@ -1,11 +1,11 @@
 import Login from "../components/login";
-import ThreeScene from "../components/threescene";
+
 export default function LoginPage() {
   return (
     <>
       <div className="h-screen w-full flex justify-center items-center flex-col bg-[url('../src/static/images/AdobeStock_88856691.jpeg')] bg-top bg-cover">
-        <div className="h-60 lg:h-65 w-full -mt-7">
-          <ThreeScene />
+        <div className="w-full -mt-7">
+          <h1 className="text-7xl text-white text text-center text-shadow mb-8">DaterBase</h1>
           </div>
         <p className="text-2xl font-bold mb-16 text-white text-shadow ">
           Dating for tech workers
@@ -19,7 +19,7 @@ export default function LoginPage() {
         <h2 className="text-4xl font-bold mx-8 mb-4 pt-16 pb-12 text-black">
           About DaterBase
         </h2>
-        <p className="mx-8">
+        <p className="mx-8 mb-32">
           Welcome to our dating app designed exclusively for software
           developers! Our app is a platform that connects like-minded developers
           who are passionate about coding and technology. We understand that
