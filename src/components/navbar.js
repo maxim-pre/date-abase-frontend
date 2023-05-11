@@ -16,7 +16,7 @@ const Navbar = ({ user }) => {
     <div>
       <div className="flex justify-between px-4 h-22 items-center bg-red-500 text-gray-100 text-2xl">
         <div className="object-cover h-24">
-          <img src={Logo} className="h-24" />
+        <img src={Logo} className="h-24" />
         </div>
 
         {!user._id && (

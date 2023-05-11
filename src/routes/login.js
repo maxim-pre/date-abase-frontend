@@ -1,12 +1,12 @@
 import Login from "../components/login";
-
+import ThreeScene from "../components/threescene";
 export default function LoginPage() {
   return (
     <>
-      <div className="h-screen w-full flex justify-center items-center flex-col bg-[url('../src/static/images/AdobeStock_88856691_Preview.jpeg')] bg-top bg-cover">
-        <h1 className="text-6xl font-bold mb-4 text-white text-shadow ">
-          Daterbase
-        </h1>
+      <div className="h-screen w-full flex justify-center items-center flex-col bg-[url('../src/static/images/AdobeStock_88856691.jpeg')] bg-top bg-cover">
+        <div className="h-60 lg:h-65 w-full -mt-7">
+          <ThreeScene />
+          </div>
         <p className="text-2xl font-bold mb-16 text-white text-shadow ">
           Dating for tech workers
         </p>
@@ -15,7 +15,7 @@ export default function LoginPage() {
         </h2>
         <Login />
       </div>
-      <div className="bg-gradient-to-br from-gray-200 to-white-500">
+      <div className="bg-white-500">
         <h2 className="text-4xl font-bold mx-8 mb-4 pt-16 pb-12 text-black">
           About DaterBase
         </h2>

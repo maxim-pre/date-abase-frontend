@@ -12,6 +12,10 @@
     -webkit-animation: slide-in-right 1.5s;
     animation: slide-in-right 1.5s;
 }
+
+.special-text-shadow {
+    text-shadow: 1px 1px 0 black;
+}
 @-webkit-keyframes slide {
     100% { left: 0; }
 }
