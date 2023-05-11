@@ -14,6 +14,7 @@ export default function DashboardPage({ user, fetchData }) {
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [photoModal, setPhotoModal] = useState(false);
   const [updateUserModal, setUpdateUserModal] = useState(false);
+  const [matches, setMatches] = useState([]);
 
   const avatarURL = "rqzml8fakhiu8gteaujy";
 
@@ -23,8 +24,6 @@ export default function DashboardPage({ user, fetchData }) {
     currentUser.photoThree ? currentUser.photoThree : avatarURL,
   ];
   Modal.setAppElement("#app");
-
-  const [matches, setMatches] = useState([]);
 
   useEffect(() => {
     setMatches(user.matches || []);

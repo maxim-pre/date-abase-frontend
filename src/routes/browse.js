@@ -52,14 +52,35 @@ const BrowsePage = ({user, fetchData}) =>{
     })
     
     return (
-        <div className="bg-[url('../src/static/images/AdobeStock_88856691.jpeg')] bg-top bg-cover pb-16">
-            <h1 className="text-5xl text-center  text-white text-shadow py-16">Find your perfect (pair programming) partner!</h1>
-            <p className='text-center text-2xl mb-8 text-gray-100 special-text-shadow'>Click that Y button and let the sparks fly - with just one tap, you could be on your way to a steamy romance that'll have your heart racing and your phone buzzing!</p>
-            <div className='grid lg:grid-cols-3 place-items-center md:grid-cols-2'>
-                {displayUsers}
-            </div>
-        </div>
-    )
-}
+      <UserCard
+        currentUser={currentUser}
+        otherUser={otherUser}
+        key={otherUser._id}
+        id={otherUser._id}
+        firstName={otherUser.firstName}
+        lastName={otherUser.lastName}
+        interestedInGender={otherUser.interestedInGender}
+        createdAt={otherUser.createdAt}
+        isMatched={otherUser.isMatched}
+      />
+    );
+  });
+
+  return (
+    <div className="bg-[url('../src/static/images/AdobeStock_88856691.jpeg')] bg-top bg-cover pb-16">
+      <h1 className="text-5xl text-center  text-white text-shadow py-16">
+        Find your perfect (pair programming) partner!
+      </h1>
+      <p className="text-center text-2xl mb-8 text-gray-100 special-text-shadow">
+        Click that Y button and let the sparks fly - with just one tap, you
+        could be on your way to a steamy romance that'll have your heart racing
+        and your phone buzzing!
+      </p>
+      <div className="grid lg:grid-cols-3 place-items-center md:grid-cols-2">
+        {displayUsers}
+      </div>
+    </div>
+  );
+};
 
 export default BrowsePage;
