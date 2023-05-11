@@ -51,20 +51,6 @@ const BrowsePage = ({user, fetchData}) =>{
         />)
     })
     
-    return (
-      <UserCard
-        currentUser={currentUser}
-        otherUser={otherUser}
-        key={otherUser._id}
-        id={otherUser._id}
-        firstName={otherUser.firstName}
-        lastName={otherUser.lastName}
-        interestedInGender={otherUser.interestedInGender}
-        createdAt={otherUser.createdAt}
-        isMatched={otherUser.isMatched}
-      />
-    );
-  });
 
   return (
     <div className="bg-[url('../src/static/images/AdobeStock_88856691.jpeg')] bg-top bg-cover pb-16">
