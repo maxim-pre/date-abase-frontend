@@ -12,8 +12,10 @@ import PhotosModal from "../components/photosModal";
 import { useState, useEffect } from "react";
 import profile from "../static/images/avatar.png";
 import Matches from "../components/matches";
+import { Link } from "react-router-dom";
 
 export default function DashboardPage({ user }) {
+
   const [currentUser, setCurrentUser] = useState(user);
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [photoModal, setPhotoModal] = useState(false);
@@ -31,6 +33,7 @@ export default function DashboardPage({ user }) {
   const [matches, setMatches] = useState([]);
   
   useEffect(() => {
+    console.log(user.matches)
     setMatches(user.matches)
   }, [user.matches])
 
@@ -39,6 +42,7 @@ export default function DashboardPage({ user }) {
 
     <div className=" w-full flex flex-col h-screen" id="home">
       {/* profile section */}
+
       {/* profile pic */}
       <div className=" items-center relative">
         <div className="w-full">
@@ -89,6 +93,7 @@ export default function DashboardPage({ user }) {
             <BsCircleFill />
           </div>
         </div>
+        <Link to="/editprofile">Update your profile</Link>
       </div>
       {/* content area */}
       <div className="mx-2">
