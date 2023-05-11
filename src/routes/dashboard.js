@@ -40,11 +40,11 @@ export default function DashboardPage({ user }) {
 
   return (
 
-    <div className=" w-full flex flex-col h-screen" id="home">
+    <div className=" w-full flex flex-col lg:grid lg:grid-cols-2" id="home">
       {/* profile section */}
-
+      <div className="md:w-80 md:mx-auto md:pt-16">
       {/* profile pic */}
-      <div className=" items-center relative">
+      <div className=" items-center relative md:w-80">
         <div className="w-full">
           <UserPhoto imageUrl={photos[currentPhoto]} />
         </div>
@@ -92,9 +92,8 @@ export default function DashboardPage({ user }) {
           >
             <BsCircleFill />
           </div>
-        </div>
-        <Link to="/editprofile">Update your profile</Link>
-      </div>
+          </div>
+          </div>
       {/* content area */}
       <div className="mx-2">
         <div className="flex justify-between  mt-2 items-center">
@@ -123,7 +122,7 @@ export default function DashboardPage({ user }) {
           {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
         </p>
       </div>
-      
+      </div>
       {/* matches section */}
       <div className="mt-16">
         <h2 className="text-center text-5xl my-16">Your Matches</h2>
