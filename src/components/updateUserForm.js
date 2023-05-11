@@ -69,6 +69,14 @@ const UpdateUserForm = ({ user, setModal }) => {
         onChange={setLastName}
       />
 
+      <label htmlFor="age">My age</label>
+            <Select
+              options={ageOptions}
+              onChange={(choice) => setAge(choice.value)}
+              className="my-2 "
+              id="age"
+            />
+
       <label htmlFor="gender">I would like to meet...</label>
       <Select
         isMulti
@@ -80,14 +88,8 @@ const UpdateUserForm = ({ user, setModal }) => {
         id="gender"
       />
 
-      <label htmlFor="age">Age</label>
-      <Select
-        options={ageOptions}
-        onChange={(choice) => setAge(choice.value)}
-        className="my-2 "
-        id="age"
-      />
-      <label htmlFor="bio">Bio</label>
+      
+      <label htmlFor="bio">A bit about me...</label>
       <textarea
         className="border border-gray-200 p-2"
         id="bio"
