@@ -69,7 +69,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         onChange={setLastName}
       />
 
-      <label htmlFor="gender">I would like to meet...</label>
+      <label htmlFor="gender" className="varela">I would like to meet...</label>
       <Select
         isMulti
         options={genderOptions}
@@ -80,14 +80,14 @@ const UpdateUserForm = ({ user, setModal }) => {
         id="gender"
       />
 
-      <label htmlFor="age">Age</label>
+      <label htmlFor="age" className="varela">Age</label>
       <Select
         options={ageOptions}
         onChange={(choice) => setAge(choice.value)}
         className="my-2 "
         id="age"
       />
-      <label htmlFor="bio">Bio</label>
+      <label htmlFor="bio" className="varela">Bio</label>
       <textarea
         className="border border-gray-200 p-2"
         id="bio"
@@ -97,7 +97,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         value={bio}
         onChange={(e) => setBio(e.target.value)}
       />
-      <button type="submit" className="p-2 text-white bg-red-500 my-6">
+      <button type="submit" className="p-2 text-white bg-red-500 my-6 uppercase text-2xl">
         submit
       </button>
     </form>
