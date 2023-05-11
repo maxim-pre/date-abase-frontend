@@ -9,7 +9,7 @@ import UpdateUserForm from "../components/updateUserForm";
 import Modal from "react-modal";
 import { useState, useEffect } from "react";
 
-export default function DashboardPage({ user }) {
+export default function DashboardPage({ user, fetchData }) {
   const [currentUser, setCurrentUser] = useState(user);
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [photoModal, setPhotoModal] = useState(false);
@@ -27,8 +27,8 @@ export default function DashboardPage({ user }) {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    setMatches(user.matches);
-  }, [user.matches]);
+    setMatches(user.matches || []);
+  }, [user]);
 
   console.log(user.interestedInGender);
 
@@ -74,7 +74,7 @@ export default function DashboardPage({ user }) {
       <div className="flex flex-col my-4 mx-4">
         <h2 className="text-left text-5xl pt-16">Your Matches</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
-          <Matches matches={matches} currentUser={user} />
+          <Matches matches={matches} currentUser={user} fetchData={fetchData} />
         </div>
       </div>
 
