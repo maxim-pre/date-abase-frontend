@@ -1,18 +1,13 @@
-import { AiOutlineArrowRight } from "react-icons/ai";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { BsCircleFill } from "react-icons/bs";
 import { IoMdPhotos } from "react-icons/io";
 import { BsFillGearFill } from "react-icons/bs";
+import { TfiClose } from "react-icons/tfi";
 
-import UserPhoto from "../components/common/userPhoto";
-import Modal from "react-modal";
 import PhotosModal from "../components/photosModal";
 import UserPhotoScroller from "../components/userPhotoScroller";
-
-import { useState, useEffect } from "react";
-import profile from "../static/images/avatar.png";
 import Matches from "../components/matches";
-import { Link } from "react-router-dom";
+import UpdateUserForm from "../components/updateUserForm";
+import Modal from "react-modal";
+import { useState, useEffect } from "react";
 
 export default function DashboardPage({ user }) {
   const [currentUser, setCurrentUser] = useState(user);
@@ -32,9 +27,10 @@ export default function DashboardPage({ user }) {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    console.log(user.matches);
     setMatches(user.matches);
   }, [user.matches]);
+
+  console.log(user.interestedInGender);
 
   return (
     <div className=" w-full flex flex-col min-h-screen">
@@ -66,9 +62,7 @@ export default function DashboardPage({ user }) {
             </div>
           </div>
           <hr />
-          <h2 className="mt-2">
-            likes {currentUser.interestedInGender === "F" ? "Chicks" : "Dudes"}
-          </h2>
+          <h2 className="mt-2">likes {currentUser.interestedInGender}</h2>
           <hr />
           <p className="mt-2">
             {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
@@ -96,9 +90,14 @@ export default function DashboardPage({ user }) {
         isOpen={updateUserModal}
         onRequestClose={() => setUpdateUserModal(false)}
       >
-        <div>Update user modal</div>
+        <div className="w-full flex flex-col">
+          <div className="flex justify-between items-center font-bold mb-4">
+            <h1>Update</h1>
+            <TfiClose onClick={() => setUpdateUserModal(false)} />
+          </div>
+          <UpdateUserForm user={currentUser} setModal={setUpdateUserModal} />
+        </div>
       </Modal>
     </div>
   );
 }
-// .resize(Resize.scale().width())
