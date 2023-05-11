@@ -26,6 +26,7 @@ function App() {
       if (token) {
         const userId = jwt_decode(token).id;
         const response = await authAxios.get(`${apiRoute}users/${userId}`);
+        console.log(response.data.user);
         setUser(response.data.user);
       } else {
         return setUser("");
@@ -37,6 +38,7 @@ function App() {
       return "";
     }
   }, []);
+  console.log(user);
 
   if (!user._id) {
     return (
@@ -59,11 +61,17 @@ function App() {
         <Routes>
           <Route path={"/"} element={<DashBoardPage user={user} />} />
 
-          <Route path={"/editprofile"} element={<EditProfilePage user={user} />} />
+          <Route
+            path={"/editprofile"}
+            element={<EditProfilePage user={user} />}
+          />
 
           <Route path={"/logout"} element={<Logout />} />
 
-          <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
+          <Route
+            path={"/conversations"}
+            element={<ConversationsPage user={user} />}
+          />
 
           <Route path={"/browse"} element={<BrowsePage user={user} />} />
 

@@ -1,4 +1,3 @@
-
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsCircleFill } from "react-icons/bs";
@@ -15,7 +14,6 @@ import Matches from "../components/matches";
 import { Link } from "react-router-dom";
 
 export default function DashboardPage({ user }) {
-
   const [currentUser, setCurrentUser] = useState(user);
   const [currentPhoto, setCurrentPhoto] = useState(0);
   const [photoModal, setPhotoModal] = useState(false);
@@ -31,16 +29,14 @@ export default function DashboardPage({ user }) {
   Modal.setAppElement("#app");
 
   const [matches, setMatches] = useState([]);
-  
-  useEffect(() => {
-    console.log(user.matches)
-    setMatches(user.matches)
-  }, [user.matches])
 
+  useEffect(() => {
+    console.log(user.matches);
+    setMatches(user.matches);
+  }, [user.matches]);
 
   return (
-
-    <div className=" w-full flex flex-col h-screen" id="home">
+    <div className=" w-full flex flex-col min-h-screen" id="home">
       {/* profile section */}
 
       {/* profile pic */}
@@ -123,7 +119,7 @@ export default function DashboardPage({ user }) {
           {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
         </p>
       </div>
-      
+
       {/* matches section */}
       <div className="mt-16">
         <h2 className="text-center text-5xl my-16">Your Matches</h2>
@@ -146,7 +142,6 @@ export default function DashboardPage({ user }) {
       >
         <div>Update user modal</div>
       </Modal>
-      
     </div>
   );
 }
