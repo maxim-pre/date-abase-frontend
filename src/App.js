@@ -59,11 +59,17 @@ function App() {
         <Routes>
           <Route path={"/"} element={<DashBoardPage user={user} />} />
 
-          <Route path={"/editprofile"} element={<EditProfilePage user={user} />} />
+          <Route
+            path={"/editprofile"}
+            element={<EditProfilePage user={user} />}
+          />
 
           <Route path={"/logout"} element={<Logout />} />
 
-          <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
+          <Route
+            path={"/conversations"}
+            element={<ConversationsPage user={user} />}
+          />
 
           <Route path={"/browse"} element={<BrowsePage user={user} />} />
 

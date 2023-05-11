@@ -5,19 +5,18 @@ import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 import { Link } from "react-router-dom";
 
-
 const Signup = () => {
   const options = [
     { value: "F", label: "women" },
     { value: "M", label: "men" },
-    { value: "O", label: "other" }
+    { value: "O", label: "other" },
   ];
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState([]);
   const [error, setError] = useState("");
 
   const submit = async () => {
@@ -38,7 +37,6 @@ const Signup = () => {
         setError("");
         window.location.href = "/";
       }
-      console.log(response);
       setError("");
       window.location.href = "/editprofile";
     } catch (error) {
@@ -47,7 +45,6 @@ const Signup = () => {
   };
 
   return (
-
     <div className="shadow-md p-4 max-w-[1000px]">
       <form
         onSubmit={(e) => {
@@ -83,7 +80,9 @@ const Signup = () => {
         <Select
           isMulti
           options={options}
-          onChange={(choice) => setGender(choice.value)}
+          onChange={(choice) => {
+            setGender([...choice.map((obj) => obj.value)]);
+          }}
           className="my-2 "
           id="gender"
         />
@@ -99,7 +98,6 @@ const Signup = () => {
       </Link>
       {error && <div className="bg-red-200 w-full rounded">Error: {error}</div>}
     </div>
-
   );
 };
 
