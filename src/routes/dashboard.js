@@ -36,6 +36,7 @@ export default function DashboardPage({ user }) {
 
 
   return (
+
     <div className=" w-full flex flex-col h-screen" id="home">
       {/* profile section */}
       {/* profile pic */}
@@ -119,9 +120,11 @@ export default function DashboardPage({ user }) {
       </div>
       
       {/* matches section */}
-      <div>
-        <h2>Your Matches</h2>
-        <Matches matches={matches} currentUser={user} />
+      <div className="mt-16">
+        <h2 className="text-center text-5xl my-16">Your Matches</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3">
+          <Matches matches={matches} currentUser={user} />
+        </div>
       </div>
 
       <Modal isOpen={photoModal} onRequestClose={() => setPhotoModal(false)}>
