@@ -29,35 +29,26 @@ export default function EditProfilePage({user}) {
         })
     }, []);
 
-  const [bio, setBio] = useState("");
-  const [location, setLocation] = useState("");
-  const [gender, setGender] = useState("");
-  const options = [
-    { value: "F", label: "woman" },
-    { value: "M", label: "man" },
-    { value: "O", label: "other" }
-  ];
-
   const [error, setError] = useState("");
 
   const submit = async () => {
-    try {
-        console.log(user._id);
-        const response = await fetch(`${apiRoute}users/${user._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                bio: bio, location: location, gender: gender
-            })
-        });
-        const data = await response.json();
-        console.log(data);
-        setError("");
-    } catch (err) {
-        setError(err.message);
-    }
+    // try {
+    //     console.log(user._id);
+    //     const response = await fetch(`${apiRoute}users/${user._id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             bio: bio, location: location, gender: gender
+    //         })
+    //     });
+    //     const data = await response.json();
+    //     console.log(data);
+    //     setError("");
+    // } catch (err) {
+    //     setError(err.message);
+    // }
 
     // try {
     //     console.log(user._id);
@@ -89,29 +80,7 @@ export default function EditProfilePage({user}) {
             submit();
             }}
         >
-            <h2>Let's fill out some more of your profile!</h2>
-            <br></br>
-            <label htmlFor="bio">A BIT ABOUT ME...</label>
-            <textarea
-            value={bio}
-            onChange={setBio}
-            rows="3">
-            </textarea>
-            
-            <FormInput
-            label={"I'm located in..."}
-            type={"text"}
-            value={location}
-            onChange={setLocation}
-            />
-            
-            <label htmlFor="gender">MY GENDER</label>
-            <Select
-            options={options}
-            onChange={(choice) => setGender(choice.value)}
-            className="my-2 "
-            id="gender"
-            />
+            <h2>Let's find out more about you!</h2>
             <br></br>
             <p>Welcome to our quick survey! By answering a few questions, our machine learning algorithm will use your responses to match you with the most romantically compatible partner based on your programming preferences and personality traits.</p>
             <br></br>
