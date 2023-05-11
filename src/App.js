@@ -19,23 +19,21 @@ import EditProfilePage from "./routes/editProfile";
 
 function App() {
   const [user, setUser] = useState("");
-  // fetches logged in user data
-  useEffect(() => {
-    const fetchData = async () => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        const userId = jwt_decode(token).id;
-        const response = await authAxios.get(`${apiRoute}users/${userId}`);
-        setUser(response.data.user);
-      } else {
-        return setUser("");
-      }
-    };
-    try {
-      setUser(fetchData());
-    } catch (error) {
-      return "";
+
+  // fetches logged in user data and sets user state
+  async function fetchData () {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userId = jwt_decode(token).id;
+      const response = await authAxios.get(`${apiRoute}users/${userId}`);
+      setUser(response.data.user);
+    } else {
+      setUser("");
     }
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   if (!user._id) {
@@ -57,7 +55,7 @@ function App() {
       <div className="App varela" id="app">
         <Navbar user={user} />
         <Routes>
-          <Route path={"/"} element={<DashBoardPage user={user} />} />
+          <Route path={"/"} element={<DashBoardPage user={user} fetchData={fetchData} />} />
 
           <Route
             path={"/editprofile"}
@@ -71,7 +69,7 @@ function App() {
             element={<ConversationsPage user={user} />}
           />
 
-          <Route path={"/browse"} element={<BrowsePage user={user} />} />
+          <Route path={"/browse"} element={<BrowsePage user={user} fetchData={fetchData} />} />
 
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>

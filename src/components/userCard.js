@@ -1,18 +1,18 @@
 import profile from '../../src/static/images/avatar.png';
 import { addMatch, removeMatch } from '../lib/matchesApi';
 
-const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio}) => {
+const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio, fetchData}) => {
 
     function handleAddMatch() {
         addMatch(currentUser, otherUser);
         addMatch(otherUser, currentUser);
-        // some code to change the style of the button(s)
+        fetchData();
     }
 
     function handleRemoveMatch() {
         removeMatch(currentUser, otherUser);
         removeMatch(otherUser, currentUser);
-        // some code to change the style of the button(s)
+        fetchData();
     }
 
     const joinedAt  = new Date(createdAt).toLocaleDateString();  

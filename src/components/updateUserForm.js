@@ -10,11 +10,11 @@ const UpdateUserForm = ({ user, setModal }) => {
   const [lastName, setLastName] = useState(user.lastName);
   const [gender, setGender] = useState(user.interestedInGender);
   const [bio, setBio] = useState(user.bio ? user.bio : "");
-  const [age, setAge] = useState(user.age ? user.age : 1);
+  const [age, setAge] = useState(user.age ? user.age : 18);
   const [error, setError] = useState("");
   console.log(user);
 
-  const ageOptionsArray = Array.from(Array(100 + 1).keys()).slice(1);
+  const ageOptionsArray = Array.from(Array(120 + 1).keys()).slice(18);
   const ageOptions = ageOptionsArray.map((age) => {
     return { value: age, label: age.toString() };
   });

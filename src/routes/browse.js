@@ -2,9 +2,11 @@ import React, {useEffect, useState} from'react';
 import { getAllUsers } from '../lib/usersApi';
 import UserCard from '../components/userCard';
 
-const BrowsePage = ({user}) =>{
+const BrowsePage = ({user, fetchData}) =>{
     // Feed through user information to the UserCard component
-
+    useEffect(() => {
+        fetchData();
+      }, []);
     // current user information
     const currentUser = user;
 
@@ -20,7 +22,9 @@ const BrowsePage = ({user}) =>{
                 let otherUsers = results.users.filter(person => person._id !== currentUser._id)
                 setAllUsers(otherUsers)
             })
-    }, []);
+    }, [user]);
+
+    
 
     
     
@@ -43,6 +47,7 @@ const BrowsePage = ({user}) =>{
             interestedInGender={otherUser.interestedInGender}
             createdAt={otherUser.createdAt}
             isMatched={otherUser.isMatched}
+            fetchData={fetchData}
         />)
     })
     
