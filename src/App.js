@@ -15,6 +15,8 @@ import authAxios from "./lib/authAxios";
 import { useEffect, useState } from "react";
 import { element } from "prop-types";
 import Logout from "./routes/logout";
+import EditProfilePage from "./routes/editProfile";
+
 function App() {
   const [user, setUser] = useState("");
   // fetches logged in user data
@@ -57,14 +59,13 @@ function App() {
         <Routes>
           <Route path={"/"} element={<DashBoardPage user={user} />} />
 
+          <Route path={"/editprofile"} element={<EditProfilePage user={user} />} />
+
           <Route path={"/logout"} element={<Logout />} />
 
-          <Route
-            path={"/conversations"}
-            element={<ConversationsPage user={user} />}
-          />
+          <Route path={"/conversations"} element={<ConversationsPage user={user} />} />
 
-          <Route path={"/browse"} element={<BrowsePage />} />
+          <Route path={"/browse"} element={<BrowsePage user={user} />} />
 
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>

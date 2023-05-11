@@ -1,4 +1,4 @@
-import apiRoute from "../../lib/apiRoute"
+import apiRoute from './apiRoute'
 
 // For production i.e. Github Pages you need to figure out how to connect to the server
 
@@ -9,12 +9,7 @@ export const getAllConversations = (userID) => {
     return fetch(`${apiRoute}conversations/${userID}`)
 }
 
-// Get user information
-export const getUserInfo = (userID) => {
-    console.log("getUserInfo")
-    console.log(userID)
-    return fetch(`${apiRoute}users/${userID}`)
-}
+
 
 // Get a single conversation 
 export const getConversation = (userID, conversationID) => {

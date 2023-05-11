@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
 
         {user._id && (
           <div className="hidden sm:flex">
-            <NavItem url={"/dashboard"} label={"Dashboard"} />
+            <NavItem url={"/"} label={"Dashboard"} />
             <NavItem url={"/conversations"} label={"Conversations"} />
             <NavItem url={"/browse"} label={"Browse"} />
             <NavItem url={"/logout"} label={"Logout"} />
@@ -64,7 +64,7 @@ const Navbar = ({ user }) => {
           {user._id && (
             <div className="">
               <MobileNavItem
-                url={"/dashboard"}
+                url={"/"}
                 label={"Dashboard"}
                 toggleNav={toggleNav}
               />

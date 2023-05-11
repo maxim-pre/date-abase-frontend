@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   const options = [
-    { value: "F", label: "Females" },
-    { value: "M", label: "Males" },
+    { value: "F", label: "Female" },
+    { value: "M", label: "Male" },
+    { value: "NB", label: "Non-Binary" },
+    { value: "O", label: "Other" }
   ];
 
   const [username, setUsername] = useState("");
@@ -78,7 +80,7 @@ const Signup = () => {
           value={lastName}
           onChange={setLastName}
         />
-        <label for="gender">I would like to meet...</label>
+        <label htmlFor="gender">I would like to meet...</label>
         <Select
           options={options}
           onChange={(choice) => setGender(choice.value)}

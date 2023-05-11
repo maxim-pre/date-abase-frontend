@@ -1,4 +1,4 @@
-import { getUserInfo } from "./conversationsApi";
+import {getUserInfo} from "../../lib/usersApi";
 import { useState, useEffect } from "react";
 
 export default function ConversationPreview ({currentUserID, participantOne, participantTwo, messages}) {

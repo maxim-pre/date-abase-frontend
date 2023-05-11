@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { BsCircleFill } from "react-icons/bs";
@@ -8,6 +8,10 @@ import { BsFillGearFill } from "react-icons/bs";
 import UserPhoto from "../components/common/userPhoto";
 import Modal from "react-modal";
 import PhotosModal from "../components/photosModal";
+
+import { useState, useEffect } from "react";
+import profile from "../static/images/avatar.png";
+import Matches from "../components/matches";
 
 export default function DashboardPage({ user }) {
   const [currentUser, setCurrentUser] = useState(user);
@@ -23,6 +27,13 @@ export default function DashboardPage({ user }) {
     currentUser.photoThree ? currentUser.photoThree : avatarURL,
   ];
   Modal.setAppElement("#app");
+
+  const [matches, setMatches] = useState([]);
+  
+  useEffect(() => {
+    setMatches(user.matches)
+  }, [user.matches])
+
 
   return (
     <div className=" w-full flex flex-col h-screen" id="home">
@@ -106,6 +117,13 @@ export default function DashboardPage({ user }) {
           {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
         </p>
       </div>
+      
+      {/* matches section */}
+      <div>
+        <h2>Your Matches</h2>
+        <Matches matches={matches} currentUser={user} />
+      </div>
+
       <Modal isOpen={photoModal} onRequestClose={() => setPhotoModal(false)}>
         <PhotosModal
           setModal={setPhotoModal}
@@ -120,6 +138,7 @@ export default function DashboardPage({ user }) {
       >
         <div>Update user modal</div>
       </Modal>
+      
     </div>
   );
 }
