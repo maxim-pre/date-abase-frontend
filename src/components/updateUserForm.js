@@ -69,6 +69,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         onChange={setLastName}
       />
 
+
       <label htmlFor="age">My age</label>
             <Select
               options={ageOptions}
@@ -78,6 +79,7 @@ const UpdateUserForm = ({ user, setModal }) => {
             />
 
       <label htmlFor="gender">I would like to meet...</label>
+
       <Select
         isMulti
         options={genderOptions}
@@ -87,6 +89,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         className="my-2 "
         id="gender"
       />
+
 
       
       <label htmlFor="bio">A bit about me...</label>
@@ -99,7 +102,7 @@ const UpdateUserForm = ({ user, setModal }) => {
         value={bio}
         onChange={(e) => setBio(e.target.value)}
       />
-      <button type="submit" className="p-2 text-white bg-red-500 my-6">
+      <button type="submit" className="p-2 text-white bg-red-500 my-6 uppercase text-2xl">
         submit
       </button>
     </form>

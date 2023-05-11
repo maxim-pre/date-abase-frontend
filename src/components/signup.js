@@ -45,7 +45,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="shadow-md p-4 max-w-[1000px]">
+    <div className="shadow-md p-4 max-w-[1000px] bg-[#e8e8e890]">
       <form
         onSubmit={(e) => {
           e.preventDefault();
