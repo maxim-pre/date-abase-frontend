@@ -37,11 +37,10 @@ function App() {
       return "";
     }
   }, []);
-  console.log(user);
 
   if (!user._id) {
     return (
-      <div className="App varela">
+      <div className="App varela" id="app">
         <Navbar user={user} />
         <Routes>
           <Route path={"/"} element={<LoginPage />} />
@@ -55,7 +54,7 @@ function App() {
     );
   } else {
     return (
-      <div className="App varela">
+      <div className="App varela" id="app">
         <Navbar user={user} />
         <Routes>
           <Route path={"/"} element={<DashBoardPage user={user} />} />
