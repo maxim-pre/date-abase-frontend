@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
           <img src={Logo} className="h-24" />
         </div>
 
-        {!user && !user._id && (
+        {!user._id && (
           <div className="hidden sm:flex">
             <NavItem url={"/"} label={"Login"} />
             <NavItem url={"/signup"} label={"Signup"} />
@@ -50,7 +50,7 @@ const Navbar = ({ user }) => {
       </div>
       {nav && (
         <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 text-center">
-          {!user && !user._id && (
+          {!user._id && (
             <div className="">
               <MobileNavItem url={"/"} label={"Login"} toggleNav={toggleNav} />
               <MobileNavItem
