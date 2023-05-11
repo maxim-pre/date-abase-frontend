@@ -7,6 +7,7 @@ import { BsFillGearFill } from "react-icons/bs";
 import UserPhoto from "../components/common/userPhoto";
 import Modal from "react-modal";
 import PhotosModal from "../components/photosModal";
+import UserPhotoScroller from "../components/userPhotoScroller";
 
 import { useState, useEffect } from "react";
 import profile from "../static/images/avatar.png";
@@ -36,93 +37,48 @@ export default function DashboardPage({ user }) {
   }, [user.matches]);
 
   return (
-    <div className=" w-full flex flex-col min-h-screen" id="home">
-      {/* profile section */}
-
-      {/* profile pic */}
-      <div className=" items-center relative">
-        <div className="w-full">
-          <UserPhoto imageUrl={photos[currentPhoto]} />
+    <div className=" w-full flex flex-col min-h-screen">
+      <div className="flex flex-col sm:flex-row">
+        <div className="sm:w-[50%]">
+          <UserPhotoScroller
+            currentPhoto={currentPhoto}
+            setCurrentPhoto={setCurrentPhoto}
+            photos={photos}
+          />
         </div>
-        {/* left and right arrows */}
-        {currentPhoto < 2 && (
-          <button
-            className="absolute right-0 top-[49%]  mx-4 p-3 rounded origin-center"
-            onClick={() => {
-              setCurrentPhoto(currentPhoto + 1);
-            }}
-          >
-            <AiOutlineArrowRight className="text-4xl text-gray-600" />
-          </button>
-        )}
-        {currentPhoto > 0 && (
-          <button
-            className="absolute left-0 top-[49%]  mx-4 p-3 rounded origin-center"
-            onClick={() => {
-              setCurrentPhoto(currentPhoto - 1);
-            }}
-          >
-            <AiOutlineArrowLeft className="text-4xl text-gray-600" />
-          </button>
-        )}
-        {/* circles at the bottom */}
-        <div className="absolute left-[50%] flex translate-x-[-50%] bottom-0 text-gray-500 opacity-50 my-4">
-          <div
-            className={`mx-2 text-xs ${
-              currentPhoto === 0 ? "text-gray-200" : "text-gray-500"
-            }`}
-          >
-            <BsCircleFill />
+        {/* content area */}
+        <div className="mx-2 w-full">
+          <div className="flex justify-between  mt-2 items-center">
+            <h2 className="font-bold text-lg">{currentUser.username}</h2>
+            <div>
+              <button
+                className="text-2xl mr-2"
+                onClick={() => setUpdateUserModal(!updateUserModal)}
+              >
+                <BsFillGearFill />
+              </button>
+              <button
+                className="text-2xl ml-2"
+                onClick={() => setPhotoModal(!photoModal)}
+              >
+                <IoMdPhotos />
+              </button>
+            </div>
           </div>
-          <div
-            className={`mx-2 text-xs ${
-              currentPhoto === 1 ? "text-gray-200" : "text-gray-500"
-            }`}
-          >
-            <BsCircleFill />
-          </div>
-          <div
-            className={`mx-2 text-xs ${
-              currentPhoto === 2 ? "text-gray-200" : "text-gray-500"
-            }`}
-          >
-            <BsCircleFill />
-          </div>
+          <hr />
+          <h2 className="mt-2">
+            likes {currentUser.interestedInGender === "F" ? "Chicks" : "Dudes"}
+          </h2>
+          <hr />
+          <p className="mt-2">
+            {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
+          </p>
         </div>
-        <Link to="/editprofile">Update your profile</Link>
-      </div>
-      {/* content area */}
-      <div className="mx-2">
-        <div className="flex justify-between  mt-2 items-center">
-          <h2 className="font-bold text-lg">{currentUser.username}</h2>
-          <div>
-            <button
-              className="text-2xl mr-2"
-              onClick={() => setUpdateUserModal(!updateUserModal)}
-            >
-              <BsFillGearFill />
-            </button>
-            <button
-              className="text-2xl ml-2"
-              onClick={() => setPhotoModal(!photoModal)}
-            >
-              <IoMdPhotos />
-            </button>
-          </div>
-        </div>
-        <hr />
-        <h2 className="mt-2">
-          likes {currentUser.interestedInGender === "F" ? "Chicks" : "Dudes"}
-        </h2>
-        <hr />
-        <p className="mt-2">
-          {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
-        </p>
       </div>
 
       {/* matches section */}
-      <div className="mt-16">
-        <h2 className="text-center text-5xl my-16">Your Matches</h2>
+      <div className="flex flex-col my-4 mx-4">
+        <h2 className="text-left text-5xl">Your Matches</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           <Matches matches={matches} currentUser={user} />
         </div>
