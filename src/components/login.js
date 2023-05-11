@@ -20,7 +20,6 @@ const Login = () => {
       setError("");
       window.location.href = "/";
     } catch (error) {
-
       setError(error.response.data.message);
     }
   };
