@@ -15,7 +15,8 @@ import authAxios from "./lib/authAxios";
 import { useEffect, useState } from "react";
 import { element } from "prop-types";
 import Logout from "./routes/logout";
-import EditProfilePage from "./routes/editProfile";
+import EditProfilePage from "./routes/survey";
+import SurveyForm from "./routes/survey";
 
 function App() {
   const [user, setUser] = useState("");
@@ -58,8 +59,8 @@ function App() {
           <Route path={"/"} element={<DashBoardPage user={user} fetchData={fetchData} />} />
 
           <Route
-            path={"/editprofile"}
-            element={<EditProfilePage user={user} />}
+            path={"/survey"}
+            element={<SurveyForm user={user} />}
           />
 
           <Route path={"/logout"} element={<Logout />} />
