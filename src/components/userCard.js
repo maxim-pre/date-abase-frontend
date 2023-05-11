@@ -44,7 +44,7 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
                 <div>
 
                 {isMatched && <button className="text-4xl bg-red-500 text-white rounded-full px-5 py-4 mr-6 focus:bg-green-500 focus:text-black hover:shadow-2xl hover:bg-yellow-400 hover:text-black" onClick={handleRemoveMatch}>N</button>}
-                {isMatched && <button className="text-4xl bg-green-500 text-white rounded-full px-6 py-4 ml-6 focus:bg-green-500 focus:text-black hover:shadow-2xl hover:bg-yellow-400 hover:text-black" onClick={handleAddMatch}> Y</button>}
+                {!isMatched && <button className="text-4xl bg-green-500 text-white rounded-full px-6 py-4 ml-6 focus:bg-green-500 focus:text-black hover:shadow-2xl hover:bg-yellow-400 hover:text-black" onClick={handleAddMatch}> Y</button>}
                 </div>
                 </div>
         </div>
