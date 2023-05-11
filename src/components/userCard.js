@@ -34,8 +34,8 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
         return (
 
         <div className="border w-100 mx-4 my-4 px-4 py-4 bg-[#e8e8e890]">
-            <h2 className="text-3xl text-center pb-4">{firstName} {lastName}</h2>
-            <p className='text-center'>Hi I'm {firstName} and I'm interested in meeting {interestedInGenders}</p>
+            <h2 className="text-3xl text-center py-4">{firstName} {lastName}</h2>
+            <p className='text-center px-6'>Hi I'm {firstName} and I'm interested in meeting {interestedInGenders}</p>
 
            
             <img className="object-cover w-full rounded-full py-12 px-12" src={profile} />
