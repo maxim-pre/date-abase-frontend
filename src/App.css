@@ -1,0 +1,25 @@
+
+.text-shadow {
+    text-shadow: 0 0 10px black;
+}
+.text-shadow-white {
+    text-shadow: 0 0 10px white;
+}
+.text-shadow-none {
+    text-shadow: none;
+}
+.slide-in-right {
+    -webkit-animation: slide-in-right 1.5s;
+    animation: slide-in-right 1.5s;
+}
+
+.special-text-shadow {
+    text-shadow: 1px 1px 0 black;
+}
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}  
