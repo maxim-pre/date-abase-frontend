@@ -16,6 +16,21 @@ export default function DashboardPage({ user, fetchData }) {
   const [updateUserModal, setUpdateUserModal] = useState(false);
   const [matches, setMatches] = useState([]);
 
+  const interestedInGenders = currentUser.interestedInGender
+    .map((gender) => {
+      switch (gender) {
+        case "M":
+          return "men";
+          break;
+        case "F":
+          return "women";
+          break;
+        case "O":
+          return "people with other gender indentities";
+          break;
+      }
+    })
+    .join(" and ");
   const avatarURL = "rqzml8fakhiu8gteaujy";
 
   const photos = [
@@ -61,7 +76,7 @@ export default function DashboardPage({ user, fetchData }) {
             </div>
           </div>
           <hr />
-          <h2 className="mt-2">likes {currentUser.interestedInGender}</h2>
+          <h2 className="mt-2">likes {interestedInGenders}</h2>
           <hr />
           <p className="mt-2">
             {currentUser.bio ? currentUser.bio : "Currently you have no Bio"}
@@ -91,8 +106,13 @@ export default function DashboardPage({ user, fetchData }) {
       >
         <div className="w-full flex flex-col ">
           <div className="flex justify-between items-center font-bold mb-4 bg-red-500 py-4 varela">
-            <h1 className="text-white ml-16 lg:text-5xl text-xl md:text-2xl uppercase">Update your profile</h1>
-            <TfiClose className="text-white lg:text-4xl md:text-2xl text-2xl lg:mr-8 mr-4" onClick={() => setUpdateUserModal(false)} />
+            <h1 className="text-white ml-16 lg:text-5xl text-xl md:text-2xl uppercase">
+              Update your profile
+            </h1>
+            <TfiClose
+              className="text-white lg:text-4xl md:text-2xl text-2xl lg:mr-8 mr-4"
+              onClick={() => setUpdateUserModal(false)}
+            />
           </div>
           <UpdateUserForm user={currentUser} setModal={setUpdateUserModal} />
         </div>
