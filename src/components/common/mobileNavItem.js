@@ -1,3 +1,5 @@
+//Navigation Item template for mobile devices with animated underline on hover
+
 import { Link } from "react-router-dom";
 
 const MobileNavItem = ({ url, label, toggleNav }) => {

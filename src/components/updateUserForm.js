@@ -4,6 +4,7 @@ import Select from "react-select";
 import authAxios from "../lib/authAxios";
 import apiRoute from "../lib/apiRoute";
 
+//State for userform update
 const UpdateUserForm = ({ user, setModal }) => {
   const [username, setUsername] = useState(user.username);
   const [firstName, setFirstName] = useState(user.firstName);
@@ -14,16 +15,22 @@ const UpdateUserForm = ({ user, setModal }) => {
   const [error, setError] = useState("");
   console.log(user);
 
+
+  //  Allows user to add age
   const ageOptionsArray = Array.from(Array(120 + 1).keys()).slice(18);
   const ageOptions = ageOptionsArray.map((age) => {
     return { value: age, label: age.toString() };
   });
+
+  // gender array
   const genderOptions = [
     { value: "F", label: "women" },
     { value: "M", label: "men" },
     { value: "O", label: "other" },
   ];
 
+
+  //submit function
   const submit = async () => {
     try {
       const response = await authAxios.put(`${apiRoute}users/${user._id}`, {
@@ -41,6 +48,8 @@ const UpdateUserForm = ({ user, setModal }) => {
   };
 
   return (
+
+    // form input
     <form
       onSubmit={(e) => {
         e.preventDefault();

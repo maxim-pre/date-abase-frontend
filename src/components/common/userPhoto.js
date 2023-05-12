@@ -1,3 +1,5 @@
+//Image widget that pulls through and styles the images from Cloudinary
+
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Resize } from "@cloudinary/url-gen/actions";
 

@@ -1,3 +1,5 @@
+//Upload button that allows user to upload image
+
 import { useEffect, useRef } from "react";
 
 const UploadWidget = ({ handleUploadImage, user, setUser }) => {

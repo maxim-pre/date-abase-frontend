@@ -1,4 +1,6 @@
-const Footer = () =>{
+//basic footer taht displays our brand tag and copyright
+
+const Footer = () => {
     return(
         <div className="bg-red-500 w-min-screen justify-center items-center">
             <p className="text-white text-xl px-8 lg:px-32 pt-32">"Connect with like-minded coders and find your perfect match with our dating app designed exclusively for software developers. Let your code and love life both run smoothly!"</p>

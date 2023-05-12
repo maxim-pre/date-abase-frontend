@@ -11,7 +11,8 @@ const Navbar = ({ user }) => {
   const toggleNav = () => {
     setNav(!nav);
   };
-
+// main desktop navbar that changes if the user is logged in or 
+// not and then below is the mobile optimized nav bar with burger menu
   return (
     <div>
       <div className="flex justify-between px-4 h-22 items-center bg-red-500 text-gray-100 text-2xl">
@@ -41,6 +42,7 @@ const Navbar = ({ user }) => {
             toggleNav();
           }}
         >
+          
           {!nav ? (
             <RxHamburgerMenu className="text-5xl cursor-pointer" />
           ) : (
@@ -48,6 +50,8 @@ const Navbar = ({ user }) => {
           )}
         </div>
       </div>
+
+
       {nav && (
         <div className="h-screen w-full absolute flex items-center justify-center flex-col bg-red-500 pb-16 z-10 text-center">
           {!user._id && (

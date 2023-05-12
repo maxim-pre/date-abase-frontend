@@ -1,3 +1,5 @@
+//handles authAxios events and handles token
+
 import axios from "axios";
 
 const authAxios = axios.create({

@@ -1,7 +1,7 @@
 import profile from '../../src/static/images/avatar.png';
 import { addMatch, removeMatch } from '../lib/matchesApi';
 
-const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio, fetchData}) => {
+const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, fetchData}) => {
 
     function handleAddMatch() {
         addMatch(currentUser, otherUser);

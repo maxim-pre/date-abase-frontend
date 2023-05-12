@@ -57,27 +57,7 @@ export default function EditProfilePage({user}) {
         setError("");
     } catch (err) {
         setError(err.message);
-    }
-
-    // try {
-    //     console.log(user._id);
-    //     const response = await fetch(`${apiRoute}users/${user._id}`, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             bio: bio, location: location, gender: gender
-    //         })
-    //     });
-    //     const data = await response.json();
-    //     console.log(data);
-    //     setError("");
-    // } catch (err) {
-    //     setError(err.message);
-    // }
-
-    
+    }   
   };
 
   return (

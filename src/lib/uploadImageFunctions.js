@@ -1,5 +1,7 @@
 import apiRoute from "./apiRoute";
 import authAxios from "./authAxios";
+
+//handles incoming photos
 const handleUploadPhotoOne = async (imageId, user, setUser) => {
   try {
     const response = await authAxios.put(`${apiRoute}users/${user._id}`, {
