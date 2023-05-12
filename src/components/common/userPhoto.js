@@ -17,7 +17,7 @@ const UserPhoto = ({ imageUrl }) => {
       src={myCld
         .image(imageUrl)
         .resize(Resize.crop().height(2500).width(2500).gravity("auto"))
-        .resize(Resize.scale().width(1080).height(1080))
+        .resize(Resize.fill().width(1080).height(1080))
         .quality("auto")
         .format("auto")
         .toURL()}

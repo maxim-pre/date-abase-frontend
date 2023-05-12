@@ -1,7 +1,16 @@
-import profile from '../../src/static/images/avatar.png';
 import { addMatch, removeMatch } from '../lib/matchesApi';
+import UserPhoto from './common/userPhoto';
 
-const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, fetchData}) => {
+
+const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio, fetchData}) => {
+    
+    const avatarURL = "rqzml8fakhiu8gteaujy";
+    const photos = [
+        otherUser.photoOne ? otherUser.photoOne : avatarURL,
+        otherUser.photoTwo ? otherUser.photoTwo : avatarURL,
+        otherUser.photoThree ? otherUser.photoThree : avatarURL,
+    ];
+
 
     function handleAddMatch() {
         addMatch(currentUser, otherUser);
@@ -38,7 +47,7 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
             <p className='text-center px-6'>Hi I'm {firstName} and I'm interested in meeting {interestedInGenders}</p>
 
            
-            <img className="object-cover w-full rounded-full py-12 px-12" src={profile} />
+            <UserPhoto imageUrl={photos[0]} />
             <p className='text-center pb-8'>I joined DaterBase on {joinedAt}</p>
             <div className='flex flex-col items-center'>
                 <div>
