@@ -1,3 +1,5 @@
+//Form Input field that is used across multiple pages
+
 const FormInput = ({ label, type, value, onChange }) => {
   return (
     <div className="flex flex-col my-2">

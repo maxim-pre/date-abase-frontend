@@ -1,6 +1,7 @@
 import { addMatch, removeMatch } from '../lib/matchesApi';
 import UserPhoto from './common/userPhoto';
 
+
 const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedInGender, isMatched, createdAt, bio, fetchData}) => {
     
     const avatarURL = "rqzml8fakhiu8gteaujy";
@@ -9,9 +10,7 @@ const UserCard = ({currentUser, otherUser, id, firstName, lastName, interestedIn
         otherUser.photoTwo ? otherUser.photoTwo : avatarURL,
         otherUser.photoThree ? otherUser.photoThree : avatarURL,
     ];
-    
 
-    
 
     function handleAddMatch() {
         addMatch(currentUser, otherUser);

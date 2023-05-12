@@ -1,3 +1,5 @@
+//defualt api route for requests
+
 let apiRoute;
 const expressPort = 5007;
 const apiUrls = {

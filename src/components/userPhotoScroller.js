@@ -2,7 +2,7 @@ import UserPhoto from "../components/common/userPhoto";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsCircleFill } from "react-icons/bs";
-
+// photo scroller
 const UserPhotoScroller = ({ currentPhoto, setCurrentPhoto, photos }) => {
   return (
     <div className="items-center relative">

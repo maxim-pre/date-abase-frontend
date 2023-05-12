@@ -11,7 +11,7 @@ const Signup = () => {
     { value: "M", label: "men" },
     { value: "O", label: "other" },
   ];
-
+//state onchange capture for form submission
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -27,6 +27,8 @@ const Signup = () => {
       password: password,
       interestedInGender: gender,
     };
+
+    // handles the token authentication
     try {
       const response = await authAxios.post(`${apiRoute}users`, { user: user });
       if (response.status === 200) {
@@ -44,6 +46,8 @@ const Signup = () => {
     }
   };
 
+
+  //form input to sign up to daterbase
   return (
     <div className="shadow-md p-4 max-w-[1000px] bg-[#e8e8e890]">
       <form

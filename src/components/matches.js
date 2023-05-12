@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 export default function Matches({ currentUser, matches, fetchData }) {
   const [allMatches, setAllMatches] = useState([]);
 
+
+  //  useEffect to load all the users matches on page render
   useEffect(() => {
     if (matches && matches.length > 0) {
       Promise.all(
@@ -27,13 +29,14 @@ export default function Matches({ currentUser, matches, fetchData }) {
     }
   }, [matches]);
 
+  // UseState that sets the default matches to display no matches if they have none and adds button t link to browse
   const [displayMatches, setDisplayMatches] = useState(
     <p>
       No matches yet. Would you like to{" "}
       <Link to="/browse">browse potential partners</Link>?
     </p>
   );
-
+// adds a Matches user card
   useEffect(() => {
     if (allMatches && allMatches.length > 0) {
       let newMatches = [...allMatches].map((user) => {

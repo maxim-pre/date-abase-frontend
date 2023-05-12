@@ -1,3 +1,5 @@
+//Login form that allows user to eneter their account info
+
 import FormInput from "./common/formInput";
 import { useState } from "react";
 import authAxios from "../lib/authAxios";
@@ -9,6 +11,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+
+  // Submit function to submit the form and awaits the repsonse token, if received successful, 
+  // they are redirected to the homepage
   const submit = async () => {
     const user = {
       username: username,
@@ -24,6 +29,8 @@ const Login = () => {
     }
   };
 
+
+  // Renders the login form
   return (
     <div className="p-4 rounded-lg max-w-[1000px] bg-[#e8e8e890]">
       <form

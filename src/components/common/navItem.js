@@ -1,3 +1,5 @@
+//Main navigation item for desktop and tablet menu 
+
 import { Link } from "react-router-dom";
 
 const NavItem = ({ url, label }) => {

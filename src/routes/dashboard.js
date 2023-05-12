@@ -91,7 +91,7 @@ export default function DashboardPage({ user, fetchData }) {
           <Matches matches={matches} currentUser={user} fetchData={fetchData} />
         </div>
       </div>
-
+    {/* modal section that allows user to update their profile*/}
       <Modal isOpen={photoModal} onRequestClose={() => setPhotoModal(false)}>
         <PhotosModal
           setModal={setPhotoModal}

@@ -7,6 +7,8 @@ import {
   handleUploadPhotoThree,
 } from "../lib/uploadImageFunctions";
 
+
+// photo upload widget
 const PhotosModal = ({ setModal, user, setUser, photos }) => {
   return (
     <div className="w-full h-full flex flex-col">
