@@ -40,6 +40,19 @@ const UpdateUserForm = ({ user, setModal }) => {
     }
   };
 
+  async function handleDelete() {
+    try {
+      localStorage.removeItem("token");
+      const response = await authAxios.delete(`${apiRoute}users/${user._id}`)
+      if (response.status===200) {
+        window.location.href = "/";
+      } 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <form
       onSubmit={(e) => {
@@ -104,6 +117,9 @@ const UpdateUserForm = ({ user, setModal }) => {
       />
       <button type="submit" className="p-2 text-white bg-red-500 my-6 uppercase text-2xl">
         submit
+      </button>
+      <button onClick={handleDelete} className="p-2 text-white bg-red-500 my-6 uppercase text-2xl">
+        Delete your account? (Careful!)
       </button>
     </form>
   );
