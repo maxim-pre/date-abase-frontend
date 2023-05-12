@@ -40,7 +40,7 @@ const Signup = () => {
         window.location.href = "/";
       }
       setError("");
-      window.location.href = "/editprofile";
+      window.location.href = "/";
     } catch (error) {
       setError(error.response.data.message);
     }
