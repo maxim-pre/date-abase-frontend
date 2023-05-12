@@ -49,6 +49,7 @@ export default function Matches({ currentUser, matches, fetchData }) {
             createdAt={user.createdAt}
             isMatched={true}
             fetchData={fetchData}
+            bio={user.bio}
           />
         );
       });

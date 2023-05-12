@@ -44,6 +44,7 @@ const BrowsePage = ({user, fetchData}) =>{
             id={otherUser._id}
             firstName={otherUser.firstName}
             lastName={otherUser.lastName}
+            bio={otherUser.bio}
             interestedInGender={otherUser.interestedInGender}
             createdAt={otherUser.createdAt}
             isMatched={otherUser.isMatched}
