@@ -1,6 +1,6 @@
 # Date-abase
 
-This is a project with a mission to connect nerds with their dream "programming" partners ;). users will be able to create and account and dating profile by answering a few important questions to determine your best match. You can browse other peoples profile and if you like the look of someone try matching with them and see if they reciprocate. If you end up lucky youll be able to chat.
+This is a project with a mission to connect nerds with their dream "programming" partners ;). users will be able to create an account and dating profile by answering a few important questions to determine your best match. You can browse other people's profile and if you like the look of someone try matching with them and see if they reciprocate. If you end up lucky you'll be able to chat.
 
 <a href="https://daterbase.netlify.app/">Deployment Link</a>
 
@@ -12,7 +12,7 @@ This is a project with a mission to connect nerds with their dream "programming"
 git clone https://github.com/maxim-pre/Date-abase-backend.git
 ```
 
-2. Navigate to this reposity on your machine then run the following commands to install the project dependencies and start the development server.
+2. Navigate to this repository on your machine then run the following commands to install the project dependencies and start the development server.
 
 ```
 npm install
@@ -48,7 +48,7 @@ npm run start
 
 Our Mission
 
-- Connect nerds with thier dream "programming" partner ;)
+- Connect people with their dream "programming" partner ;)
 
 Team Goals $ Values
 
@@ -82,14 +82,14 @@ Approach
 ## Npm Packages
 
 - **Mongoose**
-- **bcrypt**
-- **passport**
-- **react-modal**
-- **react-icons**
+- **Bcrypt**
+- **Passport**
+- **React-modal**
+- **React-icons**
 
 ## Other technologies
 
-- **cloudinary**
+- **Cloudinary**
 - **Vscode**
 - **Git**
 - **Heroku**
@@ -104,9 +104,9 @@ Approach
   - have a minimum of 6 components
   - use only react for DOM manipulation
 
-- Consume data from you API , and render that data in your components.
+- Consume data from your API , and render that data in your components.
 
-- Utilize React Router
+- Utilise React Router
 - Authentication!
 
 ## Server (Back End)
@@ -136,7 +136,7 @@ View Schema diagram here:
 
 https://excalidraw.com/#room=9c9f4fc8e1279bd72d46,vo3AP7_F2bYc7GiY1E9DCQ
 
-View wire frames here:
+View wireframes here:
 
 https://xd.adobe.com/view/4cc19f9e-36f6-404a-8564-083fd55380cd-1992/?fullscreen&hints=off
 
@@ -157,7 +157,7 @@ Beyond MVP
 
 - As a user I want to be notified when someone favourites me so I can see if we are interested in each other
 - As a user I want to message users I have matched with so we can arrange a date
-- As a user I want to be notified when I have favourited someone and they have favourited me, so I can know we are both interested in each other
+- As a user I want to be notified when I have favourited someone and they have favorited me, so I can know we are both interested in each other
 - As a user I want to upload a photo of myself so other users know what I look like
 - As a user I want to get some helpful chat up lines so I can break the ice with my date more easily
 - As a user I want to see only the users near me so I can meet them without travelling too far
@@ -199,7 +199,7 @@ app.use(cors({ origin: "*" }));
 app.listen(port, () => console.log(`Date-abase is listening on port ${port}`));
 ```
 
-Next we split up and started working on different components of the API. I was responsible for implementing the User model and routes, aswell as implementing user Authentication with postman.
+Next we split up and started working on different components of the API. I was responsible for implementing the User model and routes, as well as implementing user Authentication with postman.
 
 I started off by creating the User model with Mongoose
 
@@ -299,9 +299,9 @@ router.post("/api/login", async (req, res) => {
 
 ## Front end
 
-My first goal with the front end was to make is so users can login and signup. Our app was structured so that a user must be logged in to use the dating app, and when a user is not logged in they can only see the login and signup pages.
+My first goal with the front end was to make it so users can login and sign up. Our app was structured so that a user must be logged in to use the dating app, and when a user is not logged in they can only see the login and signup pages.
 
-I started off by creating an instance of axios that automatically grabs the JWT token from local storage.
+I started off by creating an instance of Axios that automatically grabs the JWT token from local storage.
 
 ```javascript
 const authAxios = axios.create({
@@ -364,11 +364,11 @@ const submit = async () => {
 
 Having implemented the ability for Users to login and signup. I could then implement conditional routing in the app.js file.
 
-Throughout the rest of the projects I contributed across most areas of the frontend but primarily with the dashboard. Perhaps the thing I was most happy with was implementing image upload widget and creating the photo scroller component.
+Throughout the rest of the projects I contributed across most areas of the frontend but primarily with the dashboard. Perhaps the thing I was most happy with was implementing the image upload widget and creating the photo scroller component.
 
 The was an extremely important feature to add considering the project is a dating app.
 
-I used cloudinary to create the following upload widget.
+I used Cloudinary to create the following upload widget.
 
 ```javascript
 const UploadWidget = ({ handleUploadImage, user, setUser }) => {
@@ -402,7 +402,7 @@ const UploadWidget = ({ handleUploadImage, user, setUser }) => {
 
 Here I am using a useEffect hook to instantiate the upload widget and to define the callback function when a photo is uploaded.
 
-To render the images from cloudinary I created the following component.
+To render the images from Cloudinary I created the following component.
 
 ```javaScript
 const UserPhoto = ({ imageUrl }) => {
@@ -430,9 +430,9 @@ const UserPhoto = ({ imageUrl }) => {
 
 # Challenges
 
-- Deploying the project which was something I handled on my own last minute before the deadline. It took me a while to realize that heroku doesn't recongnise .env variables but instead heroku needs to be given its own config vars.
+- Deploying the project which was something I handled on my own last minute before the deadline. It took me a while to realise that heroku doesn't recongnise .env variables but instead heroku needs to be given its own config vars.
 
-- Pull Requests. There were a few times when bugs were pulled into the upstream repository. This was a huge time waste becuase It would halt progress for the entire team until we could resolve it.
+- Pull Requests. There were a few times when bugs were pulled into the upstream repository. This was a huge time waste because It would halt progress for the entire team until we could resolve it.
 
 # Wins
 
@@ -449,5 +449,5 @@ const UserPhoto = ({ imageUrl }) => {
 # Future improvements
 
 - The UI could be improved a lot
-- I would like to add an algorith to match users. Currently users to matched with anyone in their gender preference.
+- I would like to add an algorithm to match users. Currently users can be matched with anyone in their gender preference.
 - I would like to add the ability for users to have a live chat someone they've matched with
